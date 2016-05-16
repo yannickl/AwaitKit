@@ -4,6 +4,8 @@ _AwaitedPromiseKit_ provides a powerful way to write asynchronous code in a sequ
 
 ## Usage
 
+The Async/Await pattern, like in ES7, is used in conjunction of Promise.
+
 ```swift
 func setupNewUser(name: String) -> Promise<User> {  
   return async {
@@ -16,6 +18,7 @@ func setupNewUser(name: String) -> Promise<User> {
   }
 }
 ```
+Here to setup a new user, we need to create it then find their friends to make the relation. The `createUser` and `getFacebookFriends` are promises. Both methods are called with the `await` method inside the `async` block.
 
 ## Installation
 

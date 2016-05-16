@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		21F6B93843439BF281C49BFE /* Pods_AwaitedPromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8284B11771CF2C7FFD18725 /* Pods_AwaitedPromiseKit.framework */; };
+		A05DE4F09029AA75E5DF45F8 /* Pods_AwaitedPromiseKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 537BAE61F313ADFDB2EBA24F /* Pods_AwaitedPromiseKitTests.framework */; };
 		CEDA66C21CE9FEF6002E8EF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA66C11CE9FEF6002E8EF2 /* AppDelegate.swift */; };
 		CEDA66C41CE9FEF6002E8EF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA66C31CE9FEF6002E8EF2 /* ViewController.swift */; };
 		CEDA66C71CE9FEF6002E8EF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDA66C51CE9FEF6002E8EF2 /* Main.storyboard */; };
 		CEDA66C91CE9FEF6002E8EF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEDA66C81CE9FEF6002E8EF2 /* Assets.xcassets */; };
 		CEDA66CC1CE9FEF6002E8EF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDA66CA1CE9FEF6002E8EF2 /* LaunchScreen.storyboard */; };
 		CEDA66D71CE9FEF6002E8EF2 /* AwaitedPromiseKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA66D61CE9FEF6002E8EF2 /* AwaitedPromiseKitTests.swift */; };
+		CEDA66E61CEA2D39002E8EF2 /* AwaitedPromiseKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA66E51CEA2D39002E8EF2 /* AwaitedPromiseKit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,7 +29,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E11696E442D15F529AC5D95 /* Pods-AwaitedPromiseKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwaitedPromiseKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AwaitedPromiseKitTests/Pods-AwaitedPromiseKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		152B0F8BC80820635150DB97 /* Pods-AwaitedPromiseKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwaitedPromiseKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AwaitedPromiseKit/Pods-AwaitedPromiseKit.debug.xcconfig"; sourceTree = "<group>"; };
+		1FA24FD398121F6A8E53C541 /* Pods-AwaitedPromiseKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwaitedPromiseKitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AwaitedPromiseKitTests/Pods-AwaitedPromiseKitTests.release.xcconfig"; sourceTree = "<group>"; };
+		537BAE61F313ADFDB2EBA24F /* Pods_AwaitedPromiseKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwaitedPromiseKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		782B516B26CEABBCA2DA6A11 /* Pods-AwaitedPromiseKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwaitedPromiseKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-AwaitedPromiseKit/Pods-AwaitedPromiseKit.release.xcconfig"; sourceTree = "<group>"; };
 		CEDA66BE1CE9FEF6002E8EF2 /* AwaitedPromiseKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwaitedPromiseKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDA66C11CE9FEF6002E8EF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +44,7 @@
 		CEDA66D21CE9FEF6002E8EF2 /* AwaitedPromiseKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AwaitedPromiseKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDA66D61CE9FEF6002E8EF2 /* AwaitedPromiseKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwaitedPromiseKitTests.swift; sourceTree = "<group>"; };
 		CEDA66D81CE9FEF6002E8EF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEDA66E51CEA2D39002E8EF2 /* AwaitedPromiseKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwaitedPromiseKit.swift; sourceTree = "<group>"; };
 		F8284B11771CF2C7FFD18725 /* Pods_AwaitedPromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwaitedPromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -55,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A05DE4F09029AA75E5DF45F8 /* Pods_AwaitedPromiseKitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				F8284B11771CF2C7FFD18725 /* Pods_AwaitedPromiseKit.framework */,
+				537BAE61F313ADFDB2EBA24F /* Pods_AwaitedPromiseKitTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -74,6 +82,8 @@
 			children = (
 				152B0F8BC80820635150DB97 /* Pods-AwaitedPromiseKit.debug.xcconfig */,
 				782B516B26CEABBCA2DA6A11 /* Pods-AwaitedPromiseKit.release.xcconfig */,
+				0E11696E442D15F529AC5D95 /* Pods-AwaitedPromiseKitTests.debug.xcconfig */,
+				1FA24FD398121F6A8E53C541 /* Pods-AwaitedPromiseKitTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -81,6 +91,7 @@
 		CEDA66B51CE9FEF6002E8EF2 = {
 			isa = PBXGroup;
 			children = (
+				CEDA66E41CEA2D39002E8EF2 /* Sources */,
 				CEDA66C01CE9FEF6002E8EF2 /* AwaitedPromiseKit */,
 				CEDA66D51CE9FEF6002E8EF2 /* AwaitedPromiseKitTests */,
 				CEDA66BF1CE9FEF6002E8EF2 /* Products */,
@@ -120,6 +131,15 @@
 			path = AwaitedPromiseKitTests;
 			sourceTree = "<group>";
 		};
+		CEDA66E41CEA2D39002E8EF2 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				CEDA66E51CEA2D39002E8EF2 /* AwaitedPromiseKit.swift */,
+			);
+			name = Sources;
+			path = ../Sources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +167,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEDA66DE1CE9FEF6002E8EF2 /* Build configuration list for PBXNativeTarget "AwaitedPromiseKitTests" */;
 			buildPhases = (
+				8C46D6A8730AF21682723AE3 /* 📦 Check Pods Manifest.lock */,
 				CEDA66CE1CE9FEF6002E8EF2 /* Sources */,
 				CEDA66CF1CE9FEF6002E8EF2 /* Frameworks */,
 				CEDA66D01CE9FEF6002E8EF2 /* Resources */,
+				D58595707D333BEB8468BB1C /* 📦 Embed Pods Frameworks */,
+				FD1879EDDF6FDDEE46EC3260 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -235,6 +258,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AwaitedPromiseKit/Pods-AwaitedPromiseKit-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8C46D6A8730AF21682723AE3 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		CA4C5F41489831388C4B9909 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -265,6 +303,36 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		D58595707D333BEB8468BB1C /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AwaitedPromiseKitTests/Pods-AwaitedPromiseKitTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD1879EDDF6FDDEE46EC3260 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AwaitedPromiseKitTests/Pods-AwaitedPromiseKitTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -272,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEDA66E61CEA2D39002E8EF2 /* AwaitedPromiseKit.swift in Sources */,
 				CEDA66C41CE9FEF6002E8EF2 /* ViewController.swift in Sources */,
 				CEDA66C21CE9FEF6002E8EF2 /* AppDelegate.swift in Sources */,
 			);
@@ -340,6 +409,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -385,6 +455,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -426,6 +497,7 @@
 		};
 		CEDA66DF1CE9FEF6002E8EF2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E11696E442D15F529AC5D95 /* Pods-AwaitedPromiseKitTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = AwaitedPromiseKitTests/Info.plist;
@@ -438,6 +510,7 @@
 		};
 		CEDA66E01CE9FEF6002E8EF2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1FA24FD398121F6A8E53C541 /* Pods-AwaitedPromiseKitTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = AwaitedPromiseKitTests/Info.plist;

@@ -6,31 +6,46 @@
 //  Copyright © 2016 Yannick Loriot. All rights reserved.
 //
 
+import PromiseKit
 import XCTest
 @testable import AwaitedPromiseKit
 
 class AwaitedPromiseKitTests: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+  func testSimpleAsyncBlock() {
+    let expectation = expectationWithDescription("Async should return value")
+
+    let promise: Promise<String> = async {
+      return "AwaitedPromiseKit"
     }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+
+    promise.then { value in
+      expectation.fulfill()
     }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+    waitForExpectationsWithTimeout(0.1) { error in
+      if error == nil {
+        XCTAssertEqual(promise.value, "AwaitedPromiseKit")
+      }
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
-        }
+  }
+
+  func testSimpleDelayedAsyncBlock() {
+    let expectation = expectationWithDescription("Async should return value")
+
+    let promise: Promise<String> = async {
+      NSThread.sleepForTimeInterval(0.2)
+
+      return "AwaitedPromiseKit"
     }
-    
+
+    promise.then { value in
+      expectation.fulfill()
+    }
+
+    waitForExpectationsWithTimeout(0.5) { error in
+      if error == nil {
+        XCTAssertEqual(promise.value, "AwaitedPromiseKit")
+      }
+    }
+  }
 }
