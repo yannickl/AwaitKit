@@ -28,7 +28,7 @@ import PromiseKit
 import XCTest
 @testable import AwaitedPromiseKit
 
-class AwaitedPromiseKitTests: XCTestCase {
+class AwaitedPromiseKitAsyncTests: XCTestCase {
   func testSimpleValidAsyncBlock() {
     let expectation = expectationWithDescription("Async should return value")
 
