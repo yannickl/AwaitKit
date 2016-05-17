@@ -1,5 +1,5 @@
 /*
- * AwaitedPromiseKit
+ * AwaitKit
  *
  * Copyright 2016-present Yannick Loriot.
  * http://yannickloriot.com
