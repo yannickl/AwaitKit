@@ -1,12 +1,63 @@
-# AwaitedPromiseKit
+# AwaitKit
 
-[![License](https://cocoapod-badges.herokuapp.com/l/AwaitedPromiseKit/badge.svg)](http://cocoadocs.org/docsets/AwaitedPromiseKit/) [![Supported Platforms](https://cocoapod-badges.herokuapp.com/p/AwaitedPromiseKit/badge.svg)](http://cocoadocs.org/docsets/AwaitedPromiseKit/) [![Version](https://cocoapod-badges.herokuapp.com/v/AwaitedPromiseKit/badge.svg)](http://cocoadocs.org/docsets/AwaitedPromiseKit/) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Build Status](https://travis-ci.org/yannickl/AwaitedPromiseKit.svg?branch=master)](https://travis-ci.org/yannickl/AwaitedPromiseKit) [![codecov.io](http://codecov.io/github/yannickl/AwaitedPromiseKit/coverage.svg?branch=master)](http://codecov.io/github/yannickl/AwaitedPromiseKit?branch=master) [![codebeat badge](https://codebeat.co/badges/f588f959-7d13-4bca-8f27-42a0fc0c9cfe)](https://codebeat.co/projects/github-com-yannickl-awaitedpromisekit)
+[![License](https://cocoapod-badges.herokuapp.com/l/AwaitKit/badge.svg)](http://cocoadocs.org/docsets/AwaitKit/) [![Supported Platforms](https://cocoapod-badges.herokuapp.com/p/AwaitKit/badge.svg)](http://cocoadocs.org/docsets/AwaitKit/) [![Version](https://cocoapod-badges.herokuapp.com/v/AwaitKit/badge.svg)](http://cocoadocs.org/docsets/AwaitKit/) [![Build Status](https://travis-ci.org/yannickl/AwaitKit.svg?branch=master)](https://travis-ci.org/yannickl/AwaitKit) [![codecov.io](http://codecov.io/github/yannickl/AwaitKit/coverage.svg?branch=master)](http://codecov.io/github/yannickl/AwaitKit?branch=master) [![codebeat badge](https://codebeat.co/badges/212dd077-388c-4b0a-8829-9ccf16d0a200)](https://codebeat.co/projects/github-com-yannickl-awaitkit)
 
-_AwaitedPromiseKit_ provides a powerful way to write asynchronous code in a sequential manner in Swift. It is inspired by the [Async/Await specification in ES7 (ECMAScript 7)](https://github.com/tc39/ecmascript-asyncawait) and it uses [PromiseKit](https://github.com/mxcl/PromiseKit) for promises.
+Have you ever dream to write asynchronous code like its synchronous counterpart?
+
+_AwaitKit_ is a powerful Swift library inspired by the [Async/Await specification in ES7 (ECMAScript 7)](https://github.com/tc39/ecmascript-asyncawait) which provides a powerful way to write asynchronous code in a sequential manner.
+
+Internally it uses [PromiseKit](https://github.com/mxcl/PromiseKit) to create and manage promises.
+
+## Getting Started
+
+To make simple. This:
+
+```swift
+let user = try! await(signInWithUsername("Foo", password: "Bar"))
+try! await(sendWelcomeMailToUser(user))
+try! await(redirectToThankYouScreen())
+
+print("All done!")
+```
+
+Instead of:
+
+```swift
+signInWithUsername("Foo", password: "Bar")
+  .then { user in
+    return self.sendWelcomeMailToUser(user)
+  }
+  .then { _ in
+    return self.redirectToThankYouScreen()
+  }
+  .then { _ in
+    print("All done!")
+  }
+```
+
+Or worst, using completion block style:
+
+```swift
+signInWithUsername("Foo", password: "Bar") { user in
+  self.sendWelcomeMailToUser(user) { _ in
+    self.redirectToThankYouScreen() { _ in
+      print("All done!")
+    }
+  }
+}
+```
 
 ## Usage
 
-The Async/Await pattern, like in ES7, is used in conjunction of Promise.
+### Async
+
+The `async` method yields the execution to its closure which will run in a background queue and returns a promise which will be resolved at this end of block.
+
+Here a small example :
+
+### Await
+
+The `await` method will executes the given promise or block and await until it resolved.
 
 ```swift
 func setupNewUser(name: String) -> Promise<User> {  
@@ -24,7 +75,7 @@ Here to setup a new user, we need to create it then find their friends to make t
 
 ## Installation
 
-The recommended approach to use _AwaitedPromiseKit_ in your project is using the [CocoaPods](http://cocoapods.org/) package manager, as it provides flexible dependency management and dead simple installation.
+The recommended approach to use _AwaitKit_ in your project is using the [CocoaPods](http://cocoapods.org/) package manager, as it provides flexible dependency management and dead simple installation.
 
 ### CocoaPods
 
@@ -34,7 +85,7 @@ Install CocoaPods if not already available:
 $ [sudo] gem install cocoapods
 $ pod setup
 ```
-Go to the directory of your Xcode project, and Create and Edit your Podfile and add _AwaitedPromiseKit.swift_:
+Go to the directory of your Xcode project, and Create and Edit your Podfile and add _AwaitKit_:
 
 ``` bash
 $ cd /path/to/MyProject
@@ -42,7 +93,7 @@ $ touch Podfile
 $ edit Podfile
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
-pod 'AwaitedPromiseKit', '~> 1.0.0'
+pod 'AwaitKit', '~> 1.0.0'
 ```
 
 Install into your project:
@@ -57,9 +108,26 @@ Open your project in Xcode from the .xcworkspace file (not the usual project fil
 $ open MyProject.xcworkspace
 ```
 
+### Swift Package Manager
+
+You can use [The Swift Package Manager](https://swift.org/package-manager) to install `AwaitKit` by adding the proper description to your `Package.swift` file:
+
+```swift
+import PackageDescription
+
+let package = Package(
+    name: "YOUR_PROJECT_NAME",
+    dependencies: [
+        .Package(url: "https://github.com/yannickl/AwaitKit.git")
+    ]
+)
+```
+
+Note that the [Swift Package Manager](https://swift.org/package-manager) is still in early design and development, for more information checkout its [GitHub Page](https://github.com/apple/swift-package-manager).
+
 ### Manually
 
-[Download](https://github.com/YannickL/AwaitedPromiseKit/archive/master.zip) the project and copy the `AwaitedPromiseKit` folder into your project to use it in.
+[Download](https://github.com/YannickL/AwaitKit/archive/master.zip) the project and copy the `AwaitKit` folder into your project to use it in.
 
 ## Contact
 

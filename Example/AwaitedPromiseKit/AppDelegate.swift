@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  AwaitedPromiseKit
+//  AwaitKit
 //
 //  Created by Yannick LORIOT on 16/05/16.
 //  Copyright © 2016 Yannick Loriot. All rights reserved.

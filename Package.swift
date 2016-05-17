@@ -1,5 +1,5 @@
 /*
- * AwaitedPromiseKit
+ * AwaitKit
  *
  * Copyright 2016-present Yannick Loriot.
  * http://yannickloriot.com
@@ -27,7 +27,7 @@
 import PackageDescription
 
 let package = Package(
-  name: "AwaitedPromiseKitTests",
+  name: "AwaitKit",
   dependencies: [
     .Package(url: "https://github.com/mxcl/PromiseKit.git", majorVersion: 3)
   ]
