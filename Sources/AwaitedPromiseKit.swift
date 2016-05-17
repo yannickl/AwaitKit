@@ -40,7 +40,7 @@ final class AwaitedPromiseKit {
 
         dispatch_semaphore_signal(semaphore)
       }
-      .error { err in
+      .error(on: queue) { err in
         error = err
 
         dispatch_semaphore_signal(semaphore)

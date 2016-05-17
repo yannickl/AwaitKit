@@ -49,7 +49,7 @@ class AwaitedPromiseKitAsyncTests: XCTestCase {
     }
   }
 
-  func testSimpleInvalidAsyncBlock() {
+  func testSimpleFailedAsyncBlock() {
     let expectation = expectationWithDescription("Async should not return value")
 
     let promise: Promise<String> = async {

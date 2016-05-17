@@ -32,7 +32,7 @@ class AwaitedPromiseKitAwaitTests: XCTestCase {
   let backgroundQueue = dispatch_queue_create("com.yannickloriot.testqueue", DISPATCH_QUEUE_CONCURRENT)
 
   func testSimpleAwaitPromise() {
-    let promise = Promise { resolve, reject in
+    let promise: Promise<String> = Promise { resolve, reject in
       dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1 * NSEC_PER_SEC)), backgroundQueue, {
         resolve("AwaitedPromiseKit")
       })
@@ -41,5 +41,21 @@ class AwaitedPromiseKitAwaitTests: XCTestCase {
     let name = try! await(promise)
 
     XCTAssertEqual(name, "AwaitedPromiseKit")
+  }
+
+  func testSimpleFailedAwaitPromise() {
+    let promise: Promise<String> = Promise { resolve, reject in
+      dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1 * NSEC_PER_SEC)), backgroundQueue, {
+        reject(NSError(domain: "com.yannickloriot.error", code: 320, userInfo: nil))
+      })
+    }
+
+    do {
+      try await(promise)
+    }
+    catch {
+      print("errrroororo !")
+    }
+    //XCTAssertThrowsError()
   }
 }
