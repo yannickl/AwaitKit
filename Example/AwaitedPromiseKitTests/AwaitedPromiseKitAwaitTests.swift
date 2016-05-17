@@ -29,9 +29,11 @@ import XCTest
 @testable import AwaitedPromiseKit
 
 class AwaitedPromiseKitAwaitTests: XCTestCase {
-  /*func testSimpleAwaitPromise() {
+  let backgroundQueue = dispatch_queue_create("com.yannickloriot.testqueue", DISPATCH_QUEUE_CONCURRENT)
+
+  func testSimpleAwaitPromise() {
     let promise = Promise { resolve, reject in
-      dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), {
+      dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1 * NSEC_PER_SEC)), backgroundQueue, {
         resolve("AwaitedPromiseKit")
       })
     }
@@ -44,5 +46,5 @@ class AwaitedPromiseKitAwaitTests: XCTestCase {
     catch {
       XCTAssertTrue(false)
     }
-  }*/
+  }
 }
