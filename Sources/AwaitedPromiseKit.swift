@@ -28,6 +28,8 @@ import Foundation
 import PromiseKit
 
 final class AwaitedPromiseKit {
+  static var concurrentQueue = dispatch_queue_create("com.yannickloriot.queue", DISPATCH_QUEUE_CONCURRENT)
+
   static func awaitForPromise<T>(on queue: dispatch_queue_t, promise: Promise<T>) throws -> T {
     var result: T?
     var error: ErrorType?
@@ -52,25 +54,22 @@ final class AwaitedPromiseKit {
       return result
     }
 
-    throw error ?? NSError(domain: "com.yannickloriot.awaitpromise", code: 0, userInfo: [
-      NSLocalizedDescriptionKey: "Operation was unsuccessful.",
-      NSLocalizedFailureReasonErrorKey: "No value found."
-      ])
+    throw error!
   }
 }
 
-public func async<T>(on queue: dispatch_queue_t = dispatch_queue_create("com.yannickloriot.queue", DISPATCH_QUEUE_CONCURRENT), _ body: () throws -> T) -> Promise<T> {
+public func async<T>(on queue: dispatch_queue_t = AwaitedPromiseKit.concurrentQueue, _ body: () throws -> T) -> Promise<T> {
   return dispatch_promise(on: queue, body: body)
 }
 
-public func async(on queue: dispatch_queue_t = dispatch_queue_create("com.yannickloriot.queue", DISPATCH_QUEUE_CONCURRENT), _ body: () throws -> Void) {
+public func async(on queue: dispatch_queue_t = AwaitedPromiseKit.concurrentQueue, _ body: () throws -> Void) {
   let promise: Promise<Any> = async(on: queue, body)
 
   promise.error { _ in }
 }
 
 public func await<T>(body: () throws -> T) throws -> T {
-  return try await(on: dispatch_queue_create("com.yannickloriot.queue", DISPATCH_QUEUE_CONCURRENT), body: body)
+  return try await(on: AwaitedPromiseKit.concurrentQueue, body: body)
 }
 
 public func await<T>(on queue: dispatch_queue_t, body: () throws -> T) throws -> T {
@@ -80,7 +79,7 @@ public func await<T>(on queue: dispatch_queue_t, body: () throws -> T) throws ->
 }
 
 public func await<T>(promise: Promise<T>) throws -> T {
-  return try await(on: dispatch_queue_create("com.yannickloriot.queue", DISPATCH_QUEUE_CONCURRENT), promise: promise)
+  return try await(on: AwaitedPromiseKit.concurrentQueue, promise: promise)
 }
 
 public func await<T>(on queue: dispatch_queue_t, promise: Promise<T>) throws -> T {

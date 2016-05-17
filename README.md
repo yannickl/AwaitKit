@@ -1,5 +1,7 @@
 # AwaitedPromiseKit
 
+[![License](https://cocoapod-badges.herokuapp.com/l/AwaitedPromiseKit/badge.svg)](http://cocoadocs.org/docsets/AwaitedPromiseKit/) [![Supported Platforms](https://cocoapod-badges.herokuapp.com/p/AwaitedPromiseKit/badge.svg)](http://cocoadocs.org/docsets/AwaitedPromiseKit/) [![Version](https://cocoapod-badges.herokuapp.com/v/AwaitedPromiseKit/badge.svg)](http://cocoadocs.org/docsets/AwaitedPromiseKit/) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Build Status](https://travis-ci.org/yannickl/AwaitedPromiseKit.svg?branch=master)](https://travis-ci.org/yannickl/AwaitedPromiseKit) [![codecov.io](http://codecov.io/github/yannickl/AwaitedPromiseKit/coverage.svg?branch=master)](http://codecov.io/github/yannickl/AwaitedPromiseKit?branch=master) [![codebeat badge](https://codebeat.co/badges/f588f959-7d13-4bca-8f27-42a0fc0c9cfe)](https://codebeat.co/projects/github-com-yannickl-awaitedpromisekit)
+
 _AwaitedPromiseKit_ provides a powerful way to write asynchronous code in a sequential manner in Swift. It is inspired by the [Async/Await specification in ES7 (ECMAScript 7)](https://github.com/tc39/ecmascript-asyncawait) and it uses [PromiseKit](https://github.com/mxcl/PromiseKit) for promises.
 
 ## Usage

@@ -52,4 +52,12 @@ class AwaitedPromiseKitAwaitTests: XCTestCase {
 
     XCTAssertThrowsError(try await(promise))
   }
+
+  func testNoValueAwaitPromise() {
+    let promise: Promise<Void> = Promise { resolve, reject in
+      resolve()
+    }
+print(promise.value)
+    XCTAssertNotNil(promise.value)
+  }
 }
