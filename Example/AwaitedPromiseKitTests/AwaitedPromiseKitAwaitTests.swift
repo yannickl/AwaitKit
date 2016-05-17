@@ -38,13 +38,8 @@ class AwaitedPromiseKitAwaitTests: XCTestCase {
       })
     }
 
-    do {
-      let name = try await(promise)
+    let name = try! await(promise)
 
-      XCTAssertEqual(name, "AwaitedPromiseKit")
-    }
-    catch {
-      XCTAssertTrue(false)
-    }
+    XCTAssertEqual(name, "AwaitedPromiseKit")
   }
 }
