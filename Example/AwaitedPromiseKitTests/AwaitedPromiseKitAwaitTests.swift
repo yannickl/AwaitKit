@@ -50,12 +50,6 @@ class AwaitedPromiseKitAwaitTests: XCTestCase {
       })
     }
 
-    do {
-      try await(promise)
-    }
-    catch {
-      print("errrroororo !")
-    }
-    //XCTAssertThrowsError()
+    XCTAssertThrowsError(try await(promise))
   }
 }
