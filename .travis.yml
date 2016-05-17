@@ -2,10 +2,12 @@ language: objective-c
 osx_image: xcode7.3
 before_install:
   - gem install xcpretty
+  - gem install cocoapods
 script:
   - cd Example
   - pod install
   - xcodebuild -version
+  - xcodebuild -workspace AwaitedPromiseKit.xcworkspace -list
   - xcodebuild -workspace AwaitedPromiseKit.xcworkspace -scheme AwaitedPromiseKit -sdk iphonesimulator -configuration Release ONLY_ACTIVE_ARCH=YES test | xcpretty -c
 after_success:
   - bash <(curl -s https://codecov.io/bash)

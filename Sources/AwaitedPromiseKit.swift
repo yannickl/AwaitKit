@@ -28,19 +28,17 @@ import Foundation
 import PromiseKit
 
 final class AwaitedPromiseKit {
-  static func awaitForPromise<T>(queue: dispatch_queue_t, promise: Promise<T>) throws -> T {
+  static func awaitForPromise<T>(on queue: dispatch_queue_t, promise: Promise<T>) throws -> T {
     var result: T?
     var error: ErrorType?
 
     let semaphore = dispatch_semaphore_create(0)
 
     promise
-      .then(on: queue) { value in
+      .then(on: queue) { value -> Void in
         result = value
 
         dispatch_semaphore_signal(semaphore)
-
-        return AnyPromise(bound: Promise())
       }
       .error { err in
         error = err
@@ -59,47 +57,32 @@ final class AwaitedPromiseKit {
       NSLocalizedFailureReasonErrorKey: "No value found."
       ])
   }
-
-  static func promisifyOnQueue<T>(queue: dispatch_queue_t, closure: () throws -> T) -> Promise<T> {
-    return Promise { fulfill, reject in
-      dispatch_async(queue) {
-        do {
-          let value = try closure()
-
-          fulfill(value)
-        }
-        catch {
-          reject(error)
-        }
-      }
-    }
-  }
 }
 
-public func async<T>(queue queue: dispatch_queue_t = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), _ closure: () throws -> T) -> Promise<T> {
-  return AwaitedPromiseKit.promisifyOnQueue(queue, closure: closure)
+public func async<T>(on queue: dispatch_queue_t = dispatch_queue_create("com.yannickloriot.queue", DISPATCH_QUEUE_CONCURRENT), _ body: () throws -> T) -> Promise<T> {
+  return dispatch_promise(on: queue, body: body)
 }
 
-public func async(queue queue: dispatch_queue_t = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), _ closure: () throws -> Void) {
-  let promise: Promise<Any> = async(queue: queue, closure)
+public func async(on queue: dispatch_queue_t = dispatch_queue_create("com.yannickloriot.queue", DISPATCH_QUEUE_CONCURRENT), _ body: () throws -> Void) {
+  let promise: Promise<Any> = async(on: queue, body)
 
   promise.error { _ in }
 }
 
-public func await<T>(closure: () throws -> T) throws -> T {
-  return try await(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), closure: closure)
+public func await<T>(body: () throws -> T) throws -> T {
+  return try await(on: dispatch_queue_create("com.yannickloriot.queue", DISPATCH_QUEUE_CONCURRENT), body: body)
 }
 
-public func await<T>(queue queue: dispatch_queue_t, closure: () throws -> T) throws -> T {
-  let promise = AwaitedPromiseKit.promisifyOnQueue(queue, closure: closure)
+public func await<T>(on queue: dispatch_queue_t, body: () throws -> T) throws -> T {
+  let promise = dispatch_promise(on: queue, body: body)
 
-  return try await(queue: queue, promise: promise)
+  return try await(on: queue, promise: promise)
 }
 
 public func await<T>(promise: Promise<T>) throws -> T {
-  return try await(queue: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), promise: promise)
+  return try await(on: dispatch_queue_create("com.yannickloriot.queue", DISPATCH_QUEUE_CONCURRENT), promise: promise)
 }
 
-public func await<T>(queue queue: dispatch_queue_t, promise: Promise<T>) throws -> T {
-  return try AwaitedPromiseKit.awaitForPromise(queue, promise: promise)
+public func await<T>(on queue: dispatch_queue_t, promise: Promise<T>) throws -> T {
+  return try AwaitedPromiseKit.awaitForPromise(on: queue, promise: promise)
 }

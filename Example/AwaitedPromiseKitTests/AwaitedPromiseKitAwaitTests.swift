@@ -29,7 +29,7 @@ import XCTest
 @testable import AwaitedPromiseKit
 
 class AwaitedPromiseKitAwaitTests: XCTestCase {
-  func testSimpleAwaitPromise() {
+  /*func testSimpleAwaitPromise() {
     let promise = Promise { resolve, reject in
       dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), {
         resolve("AwaitedPromiseKit")
@@ -44,5 +44,5 @@ class AwaitedPromiseKitAwaitTests: XCTestCase {
     catch {
       XCTAssertTrue(false)
     }
-  }
+  }*/
 }
