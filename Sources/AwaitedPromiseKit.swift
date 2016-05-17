@@ -27,6 +27,7 @@
 import Foundation
 import PromiseKit
 
+/// Convenience class to make the background job.
 final class AwaitedPromiseKit {
   static var concurrentQueue = dispatch_queue_create("com.yannickloriot.queue", DISPATCH_QUEUE_CONCURRENT)
 
@@ -58,30 +59,76 @@ final class AwaitedPromiseKit {
   }
 }
 
+/**
+ Yields the execution to the given closure on a specified queue and returns a new promise.
+ 
+ - parameter queue: The queue on which body should be executed.
+ - parameter body: The closure that is executed on the given queue.
+ - returns: A new promise that is resolved when the provided closure returned.
+ */
 public func async<T>(on queue: dispatch_queue_t = AwaitedPromiseKit.concurrentQueue, _ body: () throws -> T) -> Promise<T> {
   return dispatch_promise(on: queue, body: body)
 }
 
+/**
+ Yields the execution to the given closure on a specified queue.
+
+ - parameter queue: The queue on which body should be executed.
+ - parameter body: The closure that is executed on the given queue.
+ */
 public func async(on queue: dispatch_queue_t = AwaitedPromiseKit.concurrentQueue, _ body: () throws -> Void) {
   let promise: Promise<Any> = async(on: queue, body)
 
   promise.error { _ in }
 }
 
+/**
+ Awaits that the given closure finished on a background queue and return its value or throws an error if the closure failed.
+
+ - parameter body: The closure that is executed on the given queue.
+ - throws: The error sent by the closure.
+ - returns: The value of the closure when it is done.
+ - seeAlso: await(on:body:)
+ */
 public func await<T>(body: () throws -> T) throws -> T {
   return try await(on: AwaitedPromiseKit.concurrentQueue, body: body)
 }
 
+/**
+ Awaits that the given closure finished on the specified queue and return its value or throws an error if the closure failed.
+
+ - parameter queue: The queue on which body should be executed.
+ - parameter body: The closure that is executed on the given queue.
+ - throws: The error sent by the closure.
+ - returns: The value of the closure when it is done.
+ - seeAlso: await(on:promise:)
+ */
 public func await<T>(on queue: dispatch_queue_t, body: () throws -> T) throws -> T {
   let promise = dispatch_promise(on: queue, body: body)
 
   return try await(on: queue, promise: promise)
 }
 
+/**
+ Awaits that the given promise resolved on a background queue and return its value or throws an error if the promise failed.
+
+ - parameter promise: The promise to resolve.
+ - throws: The error produced when the promise is rejected.
+ - returns: The value of the promise when it is resolved.
+ - seeAlso: await(on:promise:)
+ */
 public func await<T>(promise: Promise<T>) throws -> T {
   return try await(on: AwaitedPromiseKit.concurrentQueue, promise: promise)
 }
 
+/**
+ Awaits that the given promise resolved on the specified queue and return its value or throws an error if the promise failed.
+ 
+ - parameter queue: The queue on which body should be executed.
+ - parameter promise: The promise to resolve.
+ - throws: The error produced when the promise is rejected.
+ - returns: The value of the promise when it is resolved.
+ */
 public func await<T>(on queue: dispatch_queue_t, promise: Promise<T>) throws -> T {
   return try AwaitedPromiseKit.awaitForPromise(on: queue, promise: promise)
 }
