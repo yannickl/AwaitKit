@@ -29,6 +29,8 @@ import XCTest
 @testable import AwaitedPromiseKit
 
 class AwaitedPromiseKitAsyncTests: XCTestCase {
+  let commonError = NSError(domain: "com.yannickloriot.error", code: 320, userInfo: nil)
+
   func testSimpleDelayedValidAsyncBlock() {
     let expectation = expectationWithDescription("Async should return value")
 
@@ -53,7 +55,7 @@ class AwaitedPromiseKitAsyncTests: XCTestCase {
     let expectation = expectationWithDescription("Async should not return value")
 
     let promise: Promise<String> = async {
-      throw NSError(domain: "com.yannickloriot.error", code: 320, userInfo: nil)
+      throw self.commonError
     }
 
     promise.error { err in
@@ -65,5 +67,25 @@ class AwaitedPromiseKitAsyncTests: XCTestCase {
         XCTAssertNil(promise.value)
       }
     }
+  }
+
+  func testNoReturnedValueAsync() {
+    let expectation1 = expectationWithDescription("Async should not return value")
+    let expectation2 = expectationWithDescription("Async should throw")
+
+    async {
+      expectation1.fulfill()
+    }
+
+    async {
+      defer {
+        expectation2.fulfill()
+      }
+
+      throw self.commonError
+    }
+
+    waitForExpectationsWithTimeout(0.1, handler: nil)
+
   }
 }

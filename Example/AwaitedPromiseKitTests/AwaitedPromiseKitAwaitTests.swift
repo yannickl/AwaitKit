@@ -30,6 +30,7 @@ import XCTest
 
 class AwaitedPromiseKitAwaitTests: XCTestCase {
   let backgroundQueue = dispatch_queue_create("com.yannickloriot.testqueue", DISPATCH_QUEUE_CONCURRENT)
+  let commonError     = NSError(domain: "com.yannickloriot.error", code: 320, userInfo: nil)
 
   func testSimpleAwaitPromise() {
     let promise: Promise<String> = Promise { resolve, reject in
@@ -46,7 +47,7 @@ class AwaitedPromiseKitAwaitTests: XCTestCase {
   func testSimpleFailedAwaitPromise() {
     let promise: Promise<String> = Promise { resolve, reject in
       dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1 * NSEC_PER_SEC)), backgroundQueue, {
-        reject(NSError(domain: "com.yannickloriot.error", code: 320, userInfo: nil))
+        reject(self.commonError)
       })
     }
 
@@ -57,7 +58,46 @@ class AwaitedPromiseKitAwaitTests: XCTestCase {
     let promise: Promise<Void> = Promise { resolve, reject in
       resolve()
     }
-print(promise.value)
+
     XCTAssertNotNil(promise.value)
+  }
+
+  func testAwaitBlock() {
+    var name: String = try! await {
+      return "AwaitedPromiseKit"
+    }
+
+    XCTAssertEqual(name, "AwaitedPromiseKit")
+
+    name = try! await {
+      NSThread.sleepForTimeInterval(0.2)
+
+      return "PromiseKit"
+    }
+
+    XCTAssertEqual(name, "PromiseKit")
+
+    do {
+      try await { throw self.commonError }
+
+      XCTAssertTrue(false)
+    }
+    catch {
+      XCTAssertTrue(true)
+    }
+  }
+
+  func testAsyncInsideAwaitBlock() {
+    let name: String = try! await(async({
+      return "AwaitedPromiseKit"
+    }))
+
+    XCTAssertEqual(name, "AwaitedPromiseKit")
+
+    let error: String? = try? await(async({
+      throw self.commonError
+    }))
+
+    XCTAssertNil(error)
   }
 }
