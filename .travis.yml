@@ -7,6 +7,6 @@ script:
   - cd Example
   - pod install
   - xcodebuild -version
-  - xcodebuild -workspace AwaitKitExample.xcworkspace -scheme AwaitKitTests -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 6,OS=9.0" -configuration Debug ONLY_ACTIVE_ARCH=YES test | xcpretty -c
+  - xcodebuild -workspace AwaitKitExample.xcworkspace -scheme AwaitKitTests -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 6,OS=9.0" -configuration Debug GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES ONLY_ACTIVE_ARCH=YES test | xcpretty -c
 after_success:
   - bash <(curl -s https://codecov.io/bash)

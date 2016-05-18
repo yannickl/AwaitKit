@@ -35,7 +35,7 @@ signInWithUsername("Foo", password: "Bar")
   }
 ```
 
-Or worse, using completion block imbrication hell style:
+Or worse, using the completion block imbrication hell style:
 
 ```swift
 signInWithUsername("Foo", password: "Bar") { user in
@@ -108,6 +108,22 @@ catch {
   print(error)
 }
 ```
+
+### Precision
+
+The `async` and `await` methods runs by default on a default background queue. You can of course configure it when you call these methods:
+
+```swift
+async(on: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+
+}
+
+try await(on: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+
+}
+```
+
+When you use these methods and you are doing asynchronous, be careful to do nothing in the main thread, otherwise you risk to enter in a deadlock situation.
 
 ## Installation
 
