@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  AwaitKit
+//  AwaitKitExample
 //
-//  Created by Yannick LORIOT on 16/05/16.
+//  Created by Yannick LORIOT on 18/05/16.
 //  Copyright © 2016 Yannick Loriot. All rights reserved.
 //
 
@@ -10,11 +10,10 @@ import UIKit
 import PromiseKit
 
 struct User {
-
+  var name: String
 }
 
 class ViewController: UIViewController {
-
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -22,30 +21,14 @@ class ViewController: UIViewController {
     try! await(sendWelcomeMailToUser(user))
     try! await(redirectToThankYouScreen())
 
-    print("All done!")
-
-    signInWithUsername("Foo", password: "Bar")
-      .then { user in
-        return self.sendWelcomeMailToUser(user)
-      }
-      .then { _ in
-        return self.redirectToThankYouScreen()
-      }
-      .then { _ in
-        print("All done!")
-    }
-
-    dispatch_get_main_queue()
-    dispatch_async(dispatch_queue_create("com.yannickloriot.queue", DISPATCH_QUEUE_CONCURRENT)) { 
-
-    }
+    print("All done with \(user)!")
   }
 
   // MARK: - Promises
 
   func signInWithUsername(name: String, password: String) -> Promise<User> {
-    return Promise(1).then { _ in
-      return User()
+    return Promise { resolve, reject in
+      resolve(User(name: name))
     }
   }
 
@@ -65,4 +48,3 @@ class ViewController: UIViewController {
     }
   }
 }
-

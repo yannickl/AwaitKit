@@ -7,10 +7,12 @@ def shared_pods
   pod 'PromiseKit', :git => 'https://github.com/yannickl/PromiseKit'
 end
 
-target 'AwaitedPromiseKit' do
+target 'AwaitKitExample' do
   shared_pods
 end
 
-target 'AwaitedPromiseKitTests' do
+target 'AwaitKitTests' do
   shared_pods
+  
+  pod 'AwaitKit', :path => '../'
 end
