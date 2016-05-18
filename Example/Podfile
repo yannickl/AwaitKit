@@ -13,6 +13,4 @@ end
 
 target 'AwaitKitTests' do
   shared_pods
-  
-  pod 'AwaitKit', :path => '../'
 end

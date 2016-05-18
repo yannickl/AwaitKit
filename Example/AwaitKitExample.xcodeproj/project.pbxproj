@@ -19,6 +19,16 @@
 		D64CA9186715E9B67550D551 /* Pods_AwaitKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB5AA9B07A8D036042A8476 /* Pods_AwaitKitTests.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		CEABE55A1CEC7CC2003603D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEABE5281CEC7237003603D0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CEABE52F1CEC7237003603D0;
+			remoteInfo = AwaitKitExample;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		15291ADFD2ADC33350A22337 /* Pods_AwaitKitExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwaitKitExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AA369BC9D2C1CBB7574E91A /* Pods-AwaitKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwaitKitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AwaitKitTests/Pods-AwaitKitTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -170,6 +180,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				CEABE55B1CEC7CC2003603D0 /* PBXTargetDependency */,
 			);
 			name = AwaitKitTests;
 			productName = AwaitKitTests;
@@ -348,6 +359,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CEABE55B1CEC7CC2003603D0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CEABE52F1CEC7237003603D0 /* AwaitKitExample */;
+			targetProxy = CEABE55A1CEC7CC2003603D0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CEABE5371CEC7237003603D0 /* Main.storyboard */ = {

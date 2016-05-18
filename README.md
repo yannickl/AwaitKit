@@ -10,7 +10,7 @@ Internally it uses [PromiseKit](https://github.com/mxcl/PromiseKit) to create an
 
 ## Getting Started
 
-To make simple. This:
+Put simply, write this:
 
 ```swift
 let user = try! await(signInWithUsername("Foo", password: "Bar"))
@@ -35,7 +35,7 @@ signInWithUsername("Foo", password: "Bar")
   }
 ```
 
-Or worst, using completion block style:
+Or worse, using completion block imbrication hell style:
 
 ```swift
 signInWithUsername("Foo", password: "Bar") { user in

@@ -15,6 +15,7 @@ profile
 DerivedData
 .idea/
 *.hmap
+*.xcworkspace
 *.xccheckout
 *.lock
 **/Pods/*

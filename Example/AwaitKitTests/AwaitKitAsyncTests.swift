@@ -24,12 +24,12 @@
  *
  */
 
-@testable import AwaitKit
+@testable import AwaitKitExample
 import PromiseKit
 import XCTest
 
 class AwaitKitAsyncTests: XCTestCase {
-  /*let commonError = NSError(domain: "com.yannickloriot.error", code: 320, userInfo: nil)
+  let commonError = NSError(domain: "com.yannickloriot.error", code: 320, userInfo: nil)
 
   func testSimpleDelayedValidAsyncBlock() {
     let expectation = expectationWithDescription("Async should return value")
@@ -86,5 +86,5 @@ class AwaitKitAsyncTests: XCTestCase {
     }
 
     waitForExpectationsWithTimeout(0.1, handler: nil)
-  }*/
+  }
 }

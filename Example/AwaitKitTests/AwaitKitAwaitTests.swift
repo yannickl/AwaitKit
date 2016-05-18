@@ -24,12 +24,12 @@
  *
  */
 
-@testable import AwaitKit
+@testable import AwaitKitExample
 import PromiseKit
 import XCTest
 
 class AwaitKitAwaitTests: XCTestCase {
-  /*let backgroundQueue = dispatch_queue_create("com.yannickloriot.testqueue", DISPATCH_QUEUE_CONCURRENT)
+  let backgroundQueue = dispatch_queue_create("com.yannickloriot.testqueue", DISPATCH_QUEUE_CONCURRENT)
   let commonError     = NSError(domain: "com.yannickloriot.error", code: 320, userInfo: nil)
 
   func testSimpleAwaitPromise() {
@@ -99,5 +99,5 @@ class AwaitKitAwaitTests: XCTestCase {
     }))
 
     XCTAssertNil(error)
-  }*/
+  }
 }
