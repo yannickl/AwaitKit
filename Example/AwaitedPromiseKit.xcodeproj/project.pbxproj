@@ -16,7 +16,7 @@
 		CEDA66C91CE9FEF6002E8EF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEDA66C81CE9FEF6002E8EF2 /* Assets.xcassets */; };
 		CEDA66CC1CE9FEF6002E8EF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDA66CA1CE9FEF6002E8EF2 /* LaunchScreen.storyboard */; };
 		CEDA66D71CE9FEF6002E8EF2 /* AwaitedPromiseKitAsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA66D61CE9FEF6002E8EF2 /* AwaitedPromiseKitAsyncTests.swift */; };
-		CEDA66E61CEA2D39002E8EF2 /* AwaitedPromiseKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA66E51CEA2D39002E8EF2 /* AwaitedPromiseKit.swift */; };
+		CEDA66E61CEA2D39002E8EF2 /* AwaitKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDA66E51CEA2D39002E8EF2 /* AwaitKit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +46,7 @@
 		CEDA66D21CE9FEF6002E8EF2 /* AwaitedPromiseKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AwaitedPromiseKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDA66D61CE9FEF6002E8EF2 /* AwaitedPromiseKitAsyncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwaitedPromiseKitAsyncTests.swift; sourceTree = "<group>"; };
 		CEDA66D81CE9FEF6002E8EF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEDA66E51CEA2D39002E8EF2 /* AwaitedPromiseKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwaitedPromiseKit.swift; sourceTree = "<group>"; };
+		CEDA66E51CEA2D39002E8EF2 /* AwaitKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwaitKit.swift; sourceTree = "<group>"; };
 		F8284B11771CF2C7FFD18725 /* Pods_AwaitedPromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwaitedPromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -137,7 +137,7 @@
 		CEDA66E41CEA2D39002E8EF2 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				CEDA66E51CEA2D39002E8EF2 /* AwaitedPromiseKit.swift */,
+				CEDA66E51CEA2D39002E8EF2 /* AwaitKit.swift */,
 			);
 			name = Sources;
 			path = ../Sources;
@@ -343,7 +343,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEDA66E61CEA2D39002E8EF2 /* AwaitedPromiseKit.swift in Sources */,
+				CEDA66E61CEA2D39002E8EF2 /* AwaitKit.swift in Sources */,
 				CEDA66C41CE9FEF6002E8EF2 /* ViewController.swift in Sources */,
 				CEDA66C21CE9FEF6002E8EF2 /* AppDelegate.swift in Sources */,
 			);

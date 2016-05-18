@@ -28,7 +28,7 @@ import Foundation
 import PromiseKit
 
 /// Convenience class to make the background job.
-final class AwaitedPromiseKit {
+final class AwaitKit {
   static var concurrentQueue = dispatch_queue_create("com.yannickloriot.queue", DISPATCH_QUEUE_CONCURRENT)
 
   static func awaitForPromise<T>(on queue: dispatch_queue_t, promise: Promise<T>) throws -> T {
@@ -66,7 +66,7 @@ final class AwaitedPromiseKit {
  - parameter body: The closure that is executed on the given queue.
  - returns: A new promise that is resolved when the provided closure returned.
  */
-public func async<T>(on queue: dispatch_queue_t = AwaitedPromiseKit.concurrentQueue, _ body: () throws -> T) -> Promise<T> {
+public func async<T>(on queue: dispatch_queue_t = AwaitKit.concurrentQueue, _ body: () throws -> T) -> Promise<T> {
   return dispatch_promise(on: queue, body: body)
 }
 
@@ -76,7 +76,7 @@ public func async<T>(on queue: dispatch_queue_t = AwaitedPromiseKit.concurrentQu
  - parameter queue: The queue on which body should be executed.
  - parameter body: The closure that is executed on the given queue.
  */
-public func async(on queue: dispatch_queue_t = AwaitedPromiseKit.concurrentQueue, _ body: () throws -> Void) {
+public func async(on queue: dispatch_queue_t = AwaitKit.concurrentQueue, _ body: () throws -> Void) {
   let promise: Promise<Any> = async(on: queue, body)
 
   promise.error { _ in }
@@ -91,7 +91,7 @@ public func async(on queue: dispatch_queue_t = AwaitedPromiseKit.concurrentQueue
  - seeAlso: await(on:body:)
  */
 public func await<T>(body: () throws -> T) throws -> T {
-  return try await(on: AwaitedPromiseKit.concurrentQueue, body: body)
+  return try await(on: AwaitKit.concurrentQueue, body: body)
 }
 
 /**
@@ -118,7 +118,7 @@ public func await<T>(on queue: dispatch_queue_t, body: () throws -> T) throws ->
  - seeAlso: await(on:promise:)
  */
 public func await<T>(promise: Promise<T>) throws -> T {
-  return try await(on: AwaitedPromiseKit.concurrentQueue, promise: promise)
+  return try await(on: AwaitKit.concurrentQueue, promise: promise)
 }
 
 /**
@@ -130,5 +130,5 @@ public func await<T>(promise: Promise<T>) throws -> T {
  - returns: The value of the promise when it is resolved.
  */
 public func await<T>(on queue: dispatch_queue_t, promise: Promise<T>) throws -> T {
-  return try AwaitedPromiseKit.awaitForPromise(on: queue, promise: promise)
+  return try AwaitKit.awaitForPromise(on: queue, promise: promise)
 }
