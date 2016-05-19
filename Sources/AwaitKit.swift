@@ -29,9 +29,17 @@ import PromiseKit
 
 /// Convenience class to make the background job.
 final class AwaitKit {
-  static var concurrentQueue = dispatch_queue_create("com.yannickloriot.queue", DISPATCH_QUEUE_CONCURRENT)
+  static var asyncQueue = dispatch_queue_create("com.yannickloriot.asyncqueue", DISPATCH_QUEUE_CONCURRENT)
+  static var awaitQueue = dispatch_queue_create("com.yannickloriot.awaitqueue", DISPATCH_QUEUE_CONCURRENT)
 
   static func awaitForPromise<T>(on queue: dispatch_queue_t, promise: Promise<T>) throws -> T {
+    guard dispatch_queue_get_label(queue) != dispatch_queue_get_label(DISPATCH_CURRENT_QUEUE_LABEL) else {
+      throw NSError(domain: "com.yannickloriot.awaitkit", code: 0, userInfo: [
+        NSLocalizedDescriptionKey: "Operation was aborted.",
+        NSLocalizedFailureReasonErrorKey: "The operation was aborted because the current and target queues are the same."
+        ])
+    }
+
     var result: T?
     var error: ErrorType?
 
@@ -66,7 +74,7 @@ final class AwaitKit {
  - parameter body: The closure that is executed on the given queue.
  - returns: A new promise that is resolved when the provided closure returned.
  */
-public func async<T>(on queue: dispatch_queue_t = AwaitKit.concurrentQueue, _ body: () throws -> T) -> Promise<T> {
+public func async<T>(on queue: dispatch_queue_t = AwaitKit.asyncQueue, _ body: () throws -> T) -> Promise<T> {
   return dispatch_promise(on: queue, body: body)
 }
 
@@ -76,7 +84,7 @@ public func async<T>(on queue: dispatch_queue_t = AwaitKit.concurrentQueue, _ bo
  - parameter queue: The queue on which body should be executed.
  - parameter body: The closure that is executed on the given queue.
  */
-public func async(on queue: dispatch_queue_t = AwaitKit.concurrentQueue, _ body: () throws -> Void) {
+public func async(on queue: dispatch_queue_t = AwaitKit.asyncQueue, _ body: () throws -> Void) {
   let promise: Promise<Any> = async(on: queue, body)
 
   promise.error { _ in }
@@ -91,7 +99,7 @@ public func async(on queue: dispatch_queue_t = AwaitKit.concurrentQueue, _ body:
  - seeAlso: await(on:body:)
  */
 public func await<T>(body: () throws -> T) throws -> T {
-  return try await(on: AwaitKit.concurrentQueue, body: body)
+  return try await(on: AwaitKit.awaitQueue, body: body)
 }
 
 /**
@@ -118,7 +126,7 @@ public func await<T>(on queue: dispatch_queue_t, body: () throws -> T) throws ->
  - seeAlso: await(on:promise:)
  */
 public func await<T>(promise: Promise<T>) throws -> T {
-  return try await(on: AwaitKit.concurrentQueue, promise: promise)
+  return try await(on: AwaitKit.awaitQueue, promise: promise)
 }
 
 /**

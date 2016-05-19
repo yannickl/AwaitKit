@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6B6FD9BADC52F765A81E284F /* Pods_AwaitKitExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15291ADFD2ADC33350A22337 /* Pods_AwaitKitExample.framework */; };
+		CE02EC651CEDC12600B3980D /* AwaitKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE02EC641CEDC12600B3980D /* AwaitKitTests.swift */; };
 		CEABE5341CEC7237003603D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE5331CEC7237003603D0 /* AppDelegate.swift */; };
 		CEABE5361CEC7237003603D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE5351CEC7237003603D0 /* ViewController.swift */; };
 		CEABE5391CEC7237003603D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEABE5371CEC7237003603D0 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 		62348D7CE372C9D82EA1EF19 /* Pods-AwaitKitExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwaitKitExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AwaitKitExample/Pods-AwaitKitExample.debug.xcconfig"; sourceTree = "<group>"; };
 		77DAB2F91A4487888CDE36D6 /* Pods-AwaitKitExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwaitKitExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-AwaitKitExample/Pods-AwaitKitExample.release.xcconfig"; sourceTree = "<group>"; };
 		91FE683A73FFAAF295F6E2D4 /* Pods-AwaitKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwaitKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AwaitKitTests/Pods-AwaitKitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CE02EC641CEDC12600B3980D /* AwaitKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwaitKitTests.swift; sourceTree = "<group>"; };
 		CEABE5301CEC7237003603D0 /* AwaitKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwaitKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEABE5331CEC7237003603D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEABE5351CEC7237003603D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 		CEABE54D1CEC7270003603D0 /* AwaitKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				CE02EC641CEDC12600B3980D /* AwaitKitTests.swift */,
 				CEABE5561CEC729C003603D0 /* AwaitKitAsyncTests.swift */,
 				CEABE5571CEC729C003603D0 /* AwaitKitAwaitTests.swift */,
 				CEABE5501CEC7270003603D0 /* Info.plist */,
@@ -354,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEABE5591CEC729C003603D0 /* AwaitKitAwaitTests.swift in Sources */,
+				CE02EC651CEDC12600B3980D /* AwaitKitTests.swift in Sources */,
 				CEABE5581CEC729C003603D0 /* AwaitKitAsyncTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
