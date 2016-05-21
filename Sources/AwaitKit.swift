@@ -51,7 +51,7 @@ final class AwaitKit {
 
         dispatch_semaphore_signal(semaphore)
       }
-      .error(on: queue) { err in
+      .errorOnQueue(on: queue) { err in
         error = err
 
         dispatch_semaphore_signal(semaphore)
