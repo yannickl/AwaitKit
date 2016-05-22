@@ -10,6 +10,8 @@ Internally it uses [PromiseKit](https://github.com/mxcl/PromiseKit) to create an
 
 ## Getting Started
 
+If you want have a quick overview of the project take a look to this [blog post](http://yannickloriot.com/2016/05/awaitkit/).
+
 Put simply, write this:
 
 ```swift
