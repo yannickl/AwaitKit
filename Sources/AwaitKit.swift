@@ -36,7 +36,7 @@ final class AwaitKit {
     guard dispatch_queue_get_label(queue) != dispatch_queue_get_label(DISPATCH_CURRENT_QUEUE_LABEL) else {
       throw NSError(domain: "com.yannickloriot.awaitkit", code: 0, userInfo: [
         NSLocalizedDescriptionKey: "Operation was aborted.",
-        NSLocalizedFailureReasonErrorKey: "The operation was aborted because the current and target queues are the same."
+        NSLocalizedFailureReasonErrorKey: "The current and target queues are the same."
         ])
     }
 
@@ -59,11 +59,11 @@ final class AwaitKit {
 
     dispatch_semaphore_wait(semaphore, UINT64_MAX)
 
-    if let result = result {
-      return result
+    guard let unwrappedResult = result else {
+      throw error!
     }
 
-    throw error!
+    return unwrappedResult
   }
 }
 
