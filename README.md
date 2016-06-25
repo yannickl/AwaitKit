@@ -187,7 +187,7 @@ Note that the [Swift Package Manager](https://swift.org/package-manager) is stil
 
 ### Manually
 
-[Download](https://github.com/YannickL/AwaitKit/archive/master.zip) the project and copy the `AwaitKit` folder into your project to use it in.
+[Download](https://github.com/YannickL/AwaitKit/archive/master.zip) the project and copy the `AwaitKit` folder into your project to use it in. Note that you also need to download the PromiseKit library and import it to your project.
 
 ## Contact
 
