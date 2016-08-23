@@ -77,7 +77,7 @@ The `async` block will catch the error thrown to reject the promise so you don't
 ```swift
 async {
   do {
-    try await(self.loginOrThrown(username: "yannickl")
+    try await(self.loginOrThrown(username: "yannickl"))
   }
   catch {
     print(error)
