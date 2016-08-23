@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name             = 'AwaitKit'
   s.version          = '1.0.1'
   s.license          = 'MIT'
-  s.summary          = 'The ES7 Async/Await control flow for Swift '
+  s.summary          = 'The ES8 Async/Await control flow for Swift '
   s.homepage         = 'https://github.com/yannickl/AwaitKit.git'
   s.social_media_url = 'https://twitter.com/yannickloriot'
   s.authors          = { 'Yannick Loriot' => 'contact@yannickloriot.com' }
