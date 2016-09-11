@@ -156,12 +156,6 @@ Install into your project:
 $ pod install
 ```
 
-If CocoaPods did not find the `PromiseKit 3.2.0` dependency execute this command:
-
-```bash
-$ pod repo update
-```
-
 Open your project in Xcode from the .xcworkspace file (not the usual project file)
 
 ``` bash
