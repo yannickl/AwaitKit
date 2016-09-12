@@ -29,11 +29,11 @@ import PromiseKit
 
 /// Convenience class to make the background job.
 final class AwaitKit {
-  static var asyncQueue = dispatch_queue_create("com.yannickloriot.asyncqueue", DISPATCH_QUEUE_CONCURRENT)
-  static var awaitQueue = dispatch_queue_create("com.yannickloriot.awaitqueue", DISPATCH_QUEUE_CONCURRENT)
+  static var asyncQueue = DispatchQueue(label: "com.yannickloriot.asyncqueue", attributes: DispatchQueue.Attributes.concurrent)
+  static var awaitQueue = DispatchQueue(label: "com.yannickloriot.awaitqueue", attributes: DispatchQueue.Attributes.concurrent)
 
-  static func awaitForPromise<T>(on queue: dispatch_queue_t, promise: Promise<T>) throws -> T {
-    guard dispatch_queue_get_label(queue) != dispatch_queue_get_label(DISPATCH_CURRENT_QUEUE_LABEL) else {
+  static func awaitForPromise<T>(on queue: DispatchQueue, promise: Promise<T>) throws -> T {
+    guard queue.label != DISPATCH_CURRENT_QUEUE_LABEL.label else {
       throw NSError(domain: "com.yannickloriot.awaitkit", code: 0, userInfo: [
         NSLocalizedDescriptionKey: "Operation was aborted.",
         NSLocalizedFailureReasonErrorKey: "The current and target queues are the same."
@@ -41,9 +41,9 @@ final class AwaitKit {
     }
 
     var result: T?
-    var error: ErrorType?
+    var error: Error?
 
-    let semaphore = dispatch_semaphore_create(0)
+    let semaphore = DispatchSemaphore(value: 0)
 
     promise
       .then(on: queue) { value -> Void in
@@ -57,7 +57,7 @@ final class AwaitKit {
         dispatch_semaphore_signal(semaphore)
     }
 
-    dispatch_semaphore_wait(semaphore, UINT64_MAX)
+    semaphore.wait(timeout: UINT64_MAX)
 
     guard let unwrappedResult = result else {
       throw error!
@@ -74,7 +74,7 @@ final class AwaitKit {
  - parameter body: The closure that is executed on the given queue.
  - returns: A new promise that is resolved when the provided closure returned.
  */
-public func async<T>(on queue: dispatch_queue_t = AwaitKit.asyncQueue, _ body: () throws -> T) -> Promise<T> {
+public func async<T>(on queue: DispatchQueue = AwaitKit.asyncQueue, _ body: () throws -> T) -> Promise<T> {
   return dispatch_promise(on: queue, body: body)
 }
 
@@ -84,7 +84,7 @@ public func async<T>(on queue: dispatch_queue_t = AwaitKit.asyncQueue, _ body: (
  - parameter queue: The queue on which body should be executed.
  - parameter body: The closure that is executed on the given queue.
  */
-public func async(on queue: dispatch_queue_t = AwaitKit.asyncQueue, _ body: () throws -> Void) {
+public func async(on queue: DispatchQueue = AwaitKit.asyncQueue, _ body: () throws -> Void) {
   let promise: Promise<Any> = async(on: queue, body)
 
   promise.error { _ in }
@@ -98,7 +98,7 @@ public func async(on queue: dispatch_queue_t = AwaitKit.asyncQueue, _ body: () t
  - returns: The value of the closure when it is done.
  - seeAlso: await(on:body:)
  */
-public func await<T>(body: () throws -> T) throws -> T {
+public func await<T>(_ body: () throws -> T) throws -> T {
   return try await(on: AwaitKit.awaitQueue, body: body)
 }
 
@@ -111,7 +111,7 @@ public func await<T>(body: () throws -> T) throws -> T {
  - returns: The value of the closure when it is done.
  - seeAlso: await(on:promise:)
  */
-public func await<T>(on queue: dispatch_queue_t, body: () throws -> T) throws -> T {
+public func await<T>(on queue: DispatchQueue, body: () throws -> T) throws -> T {
   let promise = dispatch_promise(on: queue, body: body)
 
   return try await(on: queue, promise: promise)
@@ -125,7 +125,7 @@ public func await<T>(on queue: dispatch_queue_t, body: () throws -> T) throws ->
  - returns: The value of the promise when it is resolved.
  - seeAlso: await(on:promise:)
  */
-public func await<T>(promise: Promise<T>) throws -> T {
+public func await<T>(_ promise: Promise<T>) throws -> T {
   return try await(on: AwaitKit.awaitQueue, promise: promise)
 }
 
@@ -137,6 +137,6 @@ public func await<T>(promise: Promise<T>) throws -> T {
  - throws: The error produced when the promise is rejected.
  - returns: The value of the promise when it is resolved.
  */
-public func await<T>(on queue: dispatch_queue_t, promise: Promise<T>) throws -> T {
+public func await<T>(on queue: DispatchQueue, promise: Promise<T>) throws -> T {
   return try AwaitKit.awaitForPromise(on: queue, promise: promise)
 }

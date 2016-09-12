@@ -26,13 +26,13 @@ class ViewController: UIViewController {
 
   // MARK: - Promises
 
-  func signInWithUsername(name: String, password: String) -> Promise<User> {
+  func signInWithUsername(_ name: String, password: String) -> Promise<User> {
     return Promise { resolve, reject in
       resolve(User(name: name))
     }
   }
 
-  func sendWelcomeMailToUser(user: User) -> Promise<Void> {
+  func sendWelcomeMailToUser(_ user: User) -> Promise<Void> {
     return Promise { resolve, reject in
       dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1 * NSEC_PER_SEC)), dispatch_queue_create("com.yannickloriot.queue", DISPATCH_QUEUE_CONCURRENT), {
         resolve()
