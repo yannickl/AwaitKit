@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6B6FD9BADC52F765A81E284F /* Pods_AwaitKitExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15291ADFD2ADC33350A22337 /* Pods_AwaitKitExample.framework */; };
 		CE02EC651CEDC12600B3980D /* AwaitKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE02EC641CEDC12600B3980D /* AwaitKitTests.swift */; };
+		CE0C2FB31D89B1C30045146C /* DispatchQueue+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0C2FB21D89B1C30045146C /* DispatchQueue+Async.swift */; };
+		CE0C2FB51D89B4A80045146C /* DispatchQueue+Await.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0C2FB41D89B4A70045146C /* DispatchQueue+Await.swift */; };
 		CEABE5341CEC7237003603D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE5331CEC7237003603D0 /* AppDelegate.swift */; };
 		CEABE5361CEC7237003603D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE5351CEC7237003603D0 /* ViewController.swift */; };
 		CEABE5391CEC7237003603D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEABE5371CEC7237003603D0 /* Main.storyboard */; };
@@ -38,6 +40,8 @@
 		77DAB2F91A4487888CDE36D6 /* Pods-AwaitKitExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwaitKitExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-AwaitKitExample/Pods-AwaitKitExample.release.xcconfig"; sourceTree = "<group>"; };
 		91FE683A73FFAAF295F6E2D4 /* Pods-AwaitKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwaitKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AwaitKitTests/Pods-AwaitKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CE02EC641CEDC12600B3980D /* AwaitKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwaitKitTests.swift; sourceTree = "<group>"; };
+		CE0C2FB21D89B1C30045146C /* DispatchQueue+Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Async.swift"; sourceTree = "<group>"; };
+		CE0C2FB41D89B4A70045146C /* DispatchQueue+Await.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Await.swift"; sourceTree = "<group>"; };
 		CEABE5301CEC7237003603D0 /* AwaitKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwaitKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEABE5331CEC7237003603D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEABE5351CEC7237003603D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				CEABE5461CEC725F003603D0 /* AwaitKit.swift */,
+				CE0C2FB21D89B1C30045146C /* DispatchQueue+Async.swift */,
+				CE0C2FB41D89B4A70045146C /* DispatchQueue+Await.swift */,
 			);
 			name = Sources;
 			path = ../Sources;
@@ -292,7 +298,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		C18FFF508A04505C55025B33 /* [CP] Check Pods Manifest.lock */ = {
@@ -307,7 +313,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D38073E9C81B39A6E1BF9C80 /* [CP] Embed Pods Frameworks */ = {
@@ -349,6 +355,8 @@
 			files = (
 				CEABE5471CEC725F003603D0 /* AwaitKit.swift in Sources */,
 				CEABE5361CEC7237003603D0 /* ViewController.swift in Sources */,
+				CE0C2FB31D89B1C30045146C /* DispatchQueue+Async.swift in Sources */,
+				CE0C2FB51D89B4A80045146C /* DispatchQueue+Await.swift in Sources */,
 				CEABE5341CEC7237003603D0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,6 +446,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -480,6 +489,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};

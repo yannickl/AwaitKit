@@ -29,12 +29,14 @@ import PromiseKit
 import XCTest
 
 class AwaitKitAwaitTests: XCTestCase {
-  let backgroundQueue = dispatch_queue_create("com.yannickloriot.testqueue", DISPATCH_QUEUE_CONCURRENT)
+  let backgroundQueue = DispatchQueue(label: "com.yannickloriot.testqueue", attributes: .concurrent)
   let commonError     = NSError(domain: "com.yannickloriot.error", code: 320, userInfo: nil)
 
   func testSimpleAwaitPromise() {
     let promise: Promise<String> = Promise { resolve, reject in
-      dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1 * NSEC_PER_SEC)), backgroundQueue, {
+      let deadlineTime = DispatchTime.now() + .seconds(1)
+
+      backgroundQueue.asyncAfter(deadline: deadlineTime, execute: {
         resolve("AwaitedPromiseKit")
       })
     }
@@ -46,7 +48,9 @@ class AwaitKitAwaitTests: XCTestCase {
 
   func testSimpleFailedAwaitPromise() {
     let promise: Promise<String> = Promise { resolve, reject in
-      dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1 * NSEC_PER_SEC)), backgroundQueue, {
+      let deadlineTime = DispatchTime.now() + .seconds(1)
+
+      backgroundQueue.asyncAfter(deadline: deadlineTime, execute: {
         reject(self.commonError)
       })
     }
@@ -70,7 +74,7 @@ class AwaitKitAwaitTests: XCTestCase {
     XCTAssertEqual(name, "AwaitedPromiseKit")
 
     name = try! await {
-      NSThread.sleepForTimeInterval(0.2)
+      Thread.sleep(forTimeInterval: 0.2)
 
       return "PromiseKit"
     }

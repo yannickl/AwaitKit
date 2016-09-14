@@ -32,19 +32,19 @@ class AwaitKitAsyncTests: XCTestCase {
   let commonError = NSError(domain: "com.yannickloriot.error", code: 320, userInfo: nil)
 
   func testSimpleDelayedValidAsyncBlock() {
-    let expectation = expectationWithDescription("Async should return value")
+    let expect = expectation(description: "Async should return value")
 
     let promise: Promise<String> = async {
-      NSThread.sleepForTimeInterval(0.2)
+      Thread.sleep(forTimeInterval: 0.2)
 
       return "AwaitedPromiseKit"
     }
 
-    promise.then { value in
-      expectation.fulfill()
+    _ = promise.then { value in
+      expect.fulfill()
     }
 
-    waitForExpectationsWithTimeout(0.5) { error in
+    waitForExpectations(timeout: 0.5) { error in
       if error == nil {
         XCTAssertEqual(promise.value, "AwaitedPromiseKit")
       }
@@ -52,17 +52,17 @@ class AwaitKitAsyncTests: XCTestCase {
   }
 
   func testSimpleFailedAsyncBlock() {
-    let expectation = expectationWithDescription("Async should not return value")
+    let expect = expectation(description: "Async should not return value")
 
     let promise: Promise<String> = async {
       throw self.commonError
     }
 
-    promise.error { err in
-      expectation.fulfill()
+    _ = promise.catch { err in
+      expect.fulfill()
     }
 
-    waitForExpectationsWithTimeout(0.1) { error in
+    waitForExpectations(timeout: 0.1) { error in
       if error == nil {
         XCTAssertNil(promise.value)
       }
@@ -70,21 +70,21 @@ class AwaitKitAsyncTests: XCTestCase {
   }
 
   func testNoReturnedValueAsyncBlock() {
-    let expectation1 = expectationWithDescription("Async should not return value")
-    let expectation2 = expectationWithDescription("Async should throw")
+    let expect1 = expectation(description: "Async should not return value")
+    let expect2 = expectation(description: "Async should throw")
 
     async {
-      expectation1.fulfill()
+      expect1.fulfill()
     }
 
     async {
       defer {
-        expectation2.fulfill()
+        expect2.fulfill()
       }
 
       throw self.commonError
     }
 
-    waitForExpectationsWithTimeout(0.1, handler: nil)
+    waitForExpectations(timeout: 0.1, handler: nil)
   }
 }
