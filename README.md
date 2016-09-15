@@ -4,9 +4,11 @@
 
 Have you ever dream to write asynchronous code like its synchronous counterpart?
 
-_AwaitKit_ is a powerful Swift library inspired by the [Async/Await specification in ES7 (ECMAScript 7)](https://github.com/tc39/ecmascript-asyncawait) which provides a powerful way to write asynchronous code in a sequential manner.
+_AwaitKit_ is a powerful Swift library inspired by the [Async/Await specification in ES8 (ECMAScript 8)](https://github.com/tc39/ecmascript-asyncawait) which provides a powerful way to write asynchronous code in a sequential manner.
 
 Internally it uses [PromiseKit](https://github.com/mxcl/PromiseKit) to create and manage promises.
+
+
 
 ## Getting Started
 
@@ -15,7 +17,7 @@ If you want have a quick overview of the project take a look to this [blog post]
 Put simply, write this:
 
 ```swift
-let user = try! await(signInWithUsername("Foo", password: "Bar"))
+let user = try! await(signIn(username: "Foo", password: "Bar"))
 try! await(sendWelcomeMailToUser(user))
 try! await(redirectToThankYouScreen())
 
@@ -25,7 +27,7 @@ print("All done!")
 Instead of:
 
 ```swift
-signInWithUsername("Foo", password: "Bar")
+signIn(username: "Foo", password: "Bar")
   .then { user in
     return self.sendWelcomeMailToUser(user)
   }
@@ -40,7 +42,7 @@ signInWithUsername("Foo", password: "Bar")
 Or worse, using the completion block imbrication hell style:
 
 ```swift
-signInWithUsername("Foo", password: "Bar") { user in
+signIn(username: "Foo", password: "Bar") { user in
   self.sendWelcomeMailToUser(user) { _ in
     self.redirectToThankYouScreen() { _ in
       print("All done!")
@@ -94,7 +96,7 @@ The `await` method will executes the given promise or block and await until it r
 ```swift
 do {
   let name: String = try await {
-    NSThread.sleepForTimeInterval(2)
+    Thread.sleep(forTimeInterval: 0.2)
 
     if Int(arc4random_uniform(2) + 1) % 2 == 0 {
       return "yannickl"
@@ -111,16 +113,16 @@ catch {
 }
 ```
 
-### Precision
+### Custom queues
 
-The `async` and `await` methods runs by default on a default background queue. You can of course configure it when you call these methods:
+The `async` and `await` methods runs by default on a background concurrent queue. Of course, you can choose your own queues and call the following methods:
 
 ```swift
-async(on: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+DispatchQueue.global(qos: .default).async {
 
 }
 
-try await(on: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+try DispatchQueue.global(qos: .default).await {
 
 }
 ```
@@ -156,7 +158,7 @@ Install into your project:
 $ pod install
 ```
 
-If CocoaPods did not find the `PromiseKit 3.2.0` dependency execute this command:
+If CocoaPods did not find the `PromiseKit 4.0.2` dependency execute this command:
 
 ```bash
 $ pod repo update

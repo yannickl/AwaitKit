@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'AwaitKit'
-  s.version          = '1.0.1'
+  s.version          = '2.0.0'
   s.license          = 'MIT'
   s.summary          = 'The ES7 Async/Await control flow for Swift '
   s.homepage         = 'https://github.com/yannickl/AwaitKit.git'
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
 
   s.ios.framework = 'Foundation'
 
-  s.dependency 'PromiseKit', '~> 3.2'
+  s.dependency 'PromiseKit', '~> 4.0'
 
   s.source_files = 'Sources/**/*.swift'
   s.requires_arc = true
