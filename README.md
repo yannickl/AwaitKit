@@ -8,7 +8,7 @@ _AwaitKit_ is a powerful Swift library inspired by the [Async/Await specificatio
 
 Internally it uses [PromiseKit](https://github.com/mxcl/PromiseKit) to create and manage promises.
 
-
+*N.B.: This branch is Swift 3 compatible, use the [v1.0.1 version](https://github.com/yannickl/AwaitKit/tree/1.0.1) for Swift 2.x.*
 
 ## Getting Started
 
@@ -149,7 +149,7 @@ $ touch Podfile
 $ edit Podfile
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
-pod 'AwaitKit', '~> 1.0.1'
+pod 'AwaitKit', '~> 2.0.0'
 ```
 
 Install into your project:
@@ -189,7 +189,7 @@ Note that the [Swift Package Manager](https://swift.org/package-manager) is stil
 
 ### Manually
 
-[Download](https://github.com/YannickL/AwaitKit/archive/master.zip) the project and copy the `AwaitKit` folder into your project to use it in. Note that you also need to download the PromiseKit library and import it to your project.
+[Download](https://github.com/YannickL/AwaitKit/archive/master.zip) the project and copy the `AwaitKit` folder into your project to use it in. Note that you also need to download the [PromiseKit](https://github.com/mxcl/PromiseKit) library and import it to your project.
 
 ## Contact
 
