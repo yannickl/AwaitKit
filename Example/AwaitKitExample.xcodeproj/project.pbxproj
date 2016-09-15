@@ -8,15 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		6B6FD9BADC52F765A81E284F /* Pods_AwaitKitExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15291ADFD2ADC33350A22337 /* Pods_AwaitKitExample.framework */; };
-		CE02EC651CEDC12600B3980D /* AwaitKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE02EC641CEDC12600B3980D /* AwaitKitTests.swift */; };
+		CE0C2FB31D89B1C30045146C /* DispatchQueue+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0C2FB21D89B1C30045146C /* DispatchQueue+Async.swift */; };
+		CE0C2FB51D89B4A80045146C /* DispatchQueue+Await.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0C2FB41D89B4A70045146C /* DispatchQueue+Await.swift */; };
+		CE0C2FB91D8A7EA30045146C /* AwaitKitAsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0C2FB61D8A7EA30045146C /* AwaitKitAsyncTests.swift */; };
+		CE0C2FBA1D8A7EA30045146C /* AwaitKitAwaitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0C2FB71D8A7EA30045146C /* AwaitKitAwaitTests.swift */; };
+		CE0C2FBB1D8A7EA30045146C /* AwaitKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0C2FB81D8A7EA30045146C /* AwaitKitTests.swift */; };
 		CEABE5341CEC7237003603D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE5331CEC7237003603D0 /* AppDelegate.swift */; };
 		CEABE5361CEC7237003603D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE5351CEC7237003603D0 /* ViewController.swift */; };
 		CEABE5391CEC7237003603D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEABE5371CEC7237003603D0 /* Main.storyboard */; };
 		CEABE53B1CEC7237003603D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEABE53A1CEC7237003603D0 /* Assets.xcassets */; };
 		CEABE53E1CEC7237003603D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEABE53C1CEC7237003603D0 /* LaunchScreen.storyboard */; };
 		CEABE5471CEC725F003603D0 /* AwaitKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE5461CEC725F003603D0 /* AwaitKit.swift */; };
-		CEABE5581CEC729C003603D0 /* AwaitKitAsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE5561CEC729C003603D0 /* AwaitKitAsyncTests.swift */; };
-		CEABE5591CEC729C003603D0 /* AwaitKitAwaitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEABE5571CEC729C003603D0 /* AwaitKitAwaitTests.swift */; };
 		D64CA9186715E9B67550D551 /* Pods_AwaitKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB5AA9B07A8D036042A8476 /* Pods_AwaitKitTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,7 +39,11 @@
 		62348D7CE372C9D82EA1EF19 /* Pods-AwaitKitExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwaitKitExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AwaitKitExample/Pods-AwaitKitExample.debug.xcconfig"; sourceTree = "<group>"; };
 		77DAB2F91A4487888CDE36D6 /* Pods-AwaitKitExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwaitKitExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-AwaitKitExample/Pods-AwaitKitExample.release.xcconfig"; sourceTree = "<group>"; };
 		91FE683A73FFAAF295F6E2D4 /* Pods-AwaitKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwaitKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AwaitKitTests/Pods-AwaitKitTests.debug.xcconfig"; sourceTree = "<group>"; };
-		CE02EC641CEDC12600B3980D /* AwaitKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwaitKitTests.swift; sourceTree = "<group>"; };
+		CE0C2FB21D89B1C30045146C /* DispatchQueue+Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Async.swift"; sourceTree = "<group>"; };
+		CE0C2FB41D89B4A70045146C /* DispatchQueue+Await.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Await.swift"; sourceTree = "<group>"; };
+		CE0C2FB61D8A7EA30045146C /* AwaitKitAsyncTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AwaitKitAsyncTests.swift; path = ../../Tests/AwaitKitAsyncTests.swift; sourceTree = "<group>"; };
+		CE0C2FB71D8A7EA30045146C /* AwaitKitAwaitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AwaitKitAwaitTests.swift; path = ../../Tests/AwaitKitAwaitTests.swift; sourceTree = "<group>"; };
+		CE0C2FB81D8A7EA30045146C /* AwaitKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AwaitKitTests.swift; path = ../../Tests/AwaitKitTests.swift; sourceTree = "<group>"; };
 		CEABE5301CEC7237003603D0 /* AwaitKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AwaitKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEABE5331CEC7237003603D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEABE5351CEC7237003603D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,8 +54,6 @@
 		CEABE5461CEC725F003603D0 /* AwaitKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwaitKit.swift; sourceTree = "<group>"; };
 		CEABE54C1CEC7270003603D0 /* AwaitKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AwaitKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEABE5501CEC7270003603D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEABE5561CEC729C003603D0 /* AwaitKitAsyncTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwaitKitAsyncTests.swift; sourceTree = "<group>"; };
-		CEABE5571CEC729C003603D0 /* AwaitKitAwaitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwaitKitAwaitTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				CEABE5461CEC725F003603D0 /* AwaitKit.swift */,
+				CE0C2FB21D89B1C30045146C /* DispatchQueue+Async.swift */,
+				CE0C2FB41D89B4A70045146C /* DispatchQueue+Await.swift */,
 			);
 			name = Sources;
 			path = ../Sources;
@@ -138,9 +144,9 @@
 		CEABE54D1CEC7270003603D0 /* AwaitKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				CE02EC641CEDC12600B3980D /* AwaitKitTests.swift */,
-				CEABE5561CEC729C003603D0 /* AwaitKitAsyncTests.swift */,
-				CEABE5571CEC729C003603D0 /* AwaitKitAwaitTests.swift */,
+				CE0C2FB61D8A7EA30045146C /* AwaitKitAsyncTests.swift */,
+				CE0C2FB71D8A7EA30045146C /* AwaitKitAwaitTests.swift */,
+				CE0C2FB81D8A7EA30045146C /* AwaitKitTests.swift */,
 				CEABE5501CEC7270003603D0 /* Info.plist */,
 			);
 			path = AwaitKitTests;
@@ -153,12 +159,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEABE5421CEC7237003603D0 /* Build configuration list for PBXNativeTarget "AwaitKitExample" */;
 			buildPhases = (
-				AAC638F4661AA67E336A887E /* 📦 Check Pods Manifest.lock */,
+				AAC638F4661AA67E336A887E /* [CP] Check Pods Manifest.lock */,
 				CEABE52C1CEC7237003603D0 /* Sources */,
 				CEABE52D1CEC7237003603D0 /* Frameworks */,
 				CEABE52E1CEC7237003603D0 /* Resources */,
-				1FCFC09038FBFED1AACC6621 /* 📦 Embed Pods Frameworks */,
-				DC0D83A121759DBE696A8573 /* 📦 Copy Pods Resources */,
+				1FCFC09038FBFED1AACC6621 /* [CP] Embed Pods Frameworks */,
+				DC0D83A121759DBE696A8573 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -173,12 +179,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEABE5531CEC7270003603D0 /* Build configuration list for PBXNativeTarget "AwaitKitTests" */;
 			buildPhases = (
-				C18FFF508A04505C55025B33 /* 📦 Check Pods Manifest.lock */,
+				C18FFF508A04505C55025B33 /* [CP] Check Pods Manifest.lock */,
 				CEABE5481CEC7270003603D0 /* Sources */,
 				CEABE5491CEC7270003603D0 /* Frameworks */,
 				CEABE54A1CEC7270003603D0 /* Resources */,
-				D38073E9C81B39A6E1BF9C80 /* 📦 Embed Pods Frameworks */,
-				A68127E29BDBCA7CB34CA103 /* 📦 Copy Pods Resources */,
+				D38073E9C81B39A6E1BF9C80 /* [CP] Embed Pods Frameworks */,
+				A68127E29BDBCA7CB34CA103 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -197,14 +203,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Yannick Loriot";
 				TargetAttributes = {
 					CEABE52F1CEC7237003603D0 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 					};
 					CEABE54B1CEC7270003603D0 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 						TestTargetID = CEABE52F1CEC7237003603D0;
 					};
 				};
@@ -249,14 +257,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1FCFC09038FBFED1AACC6621 /* 📦 Embed Pods Frameworks */ = {
+		1FCFC09038FBFED1AACC6621 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,14 +272,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AwaitKitExample/Pods-AwaitKitExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A68127E29BDBCA7CB34CA103 /* 📦 Copy Pods Resources */ = {
+		A68127E29BDBCA7CB34CA103 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,44 +287,44 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AwaitKitTests/Pods-AwaitKitTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AAC638F4661AA67E336A887E /* 📦 Check Pods Manifest.lock */ = {
+		AAC638F4661AA67E336A887E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		C18FFF508A04505C55025B33 /* 📦 Check Pods Manifest.lock */ = {
+		C18FFF508A04505C55025B33 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		D38073E9C81B39A6E1BF9C80 /* 📦 Embed Pods Frameworks */ = {
+		D38073E9C81B39A6E1BF9C80 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,14 +332,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AwaitKitTests/Pods-AwaitKitTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DC0D83A121759DBE696A8573 /* 📦 Copy Pods Resources */ = {
+		DC0D83A121759DBE696A8573 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,6 +356,8 @@
 			files = (
 				CEABE5471CEC725F003603D0 /* AwaitKit.swift in Sources */,
 				CEABE5361CEC7237003603D0 /* ViewController.swift in Sources */,
+				CE0C2FB31D89B1C30045146C /* DispatchQueue+Async.swift in Sources */,
+				CE0C2FB51D89B4A80045146C /* DispatchQueue+Await.swift in Sources */,
 				CEABE5341CEC7237003603D0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,9 +366,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEABE5591CEC729C003603D0 /* AwaitKitAwaitTests.swift in Sources */,
-				CE02EC651CEDC12600B3980D /* AwaitKitTests.swift in Sources */,
-				CEABE5581CEC729C003603D0 /* AwaitKitAsyncTests.swift in Sources */,
+				CE0C2FBA1D8A7EA30045146C /* AwaitKitAwaitTests.swift in Sources */,
+				CE0C2FBB1D8A7EA30045146C /* AwaitKitTests.swift in Sources */,
+				CE0C2FB91D8A7EA30045146C /* AwaitKitAsyncTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,8 +416,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -435,6 +447,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -453,8 +466,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -474,6 +489,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -488,6 +505,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.AwaitKitExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -500,6 +518,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.AwaitKitExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -508,10 +527,13 @@
 			baseConfigurationReference = 91FE683A73FFAAF295F6E2D4 /* Pods-AwaitKitTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = AwaitKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.AwaitKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AwaitKitExample.app/AwaitKitExample";
 			};
 			name = Debug;
@@ -521,10 +543,12 @@
 			baseConfigurationReference = 3AA369BC9D2C1CBB7574E91A /* Pods-AwaitKitTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = AwaitKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.AwaitKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AwaitKitExample.app/AwaitKitExample";
 			};
 			name = Release;

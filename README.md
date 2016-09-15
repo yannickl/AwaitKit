@@ -8,6 +8,8 @@ _AwaitKit_ is a powerful Swift library inspired by the [Async/Await specificatio
 
 Internally it uses [PromiseKit](https://github.com/mxcl/PromiseKit) to create and manage promises.
 
+*N.B.: This branch is Swift 3 compatible, use the [v1.0.1 version](https://github.com/yannickl/AwaitKit/tree/1.0.1) for Swift 2.x.*
+
 ## Getting Started
 
 If you want have a quick overview of the project take a look to this [blog post](http://yannickloriot.com/2016/05/awaitkit/).
@@ -15,7 +17,7 @@ If you want have a quick overview of the project take a look to this [blog post]
 Put simply, write this:
 
 ```swift
-let user = try! await(signInWithUsername("Foo", password: "Bar"))
+let user = try! await(signIn(username: "Foo", password: "Bar"))
 try! await(sendWelcomeMailToUser(user))
 try! await(redirectToThankYouScreen())
 
@@ -25,7 +27,7 @@ print("All done!")
 Instead of:
 
 ```swift
-signInWithUsername("Foo", password: "Bar")
+signIn(username: "Foo", password: "Bar")
   .then { user in
     return self.sendWelcomeMailToUser(user)
   }
@@ -40,7 +42,7 @@ signInWithUsername("Foo", password: "Bar")
 Or worse, using the completion block imbrication hell style:
 
 ```swift
-signInWithUsername("Foo", password: "Bar") { user in
+signIn(username: "Foo", password: "Bar") { user in
   self.sendWelcomeMailToUser(user) { _ in
     self.redirectToThankYouScreen() { _ in
       print("All done!")
@@ -94,7 +96,7 @@ The `await` method will executes the given promise or block and await until it r
 ```swift
 do {
   let name: String = try await {
-    NSThread.sleepForTimeInterval(2)
+    Thread.sleep(forTimeInterval: 0.2)
 
     if Int(arc4random_uniform(2) + 1) % 2 == 0 {
       return "yannickl"
@@ -111,16 +113,16 @@ catch {
 }
 ```
 
-### Precision
+### Custom queues
 
-The `async` and `await` methods runs by default on a default background queue. You can of course configure it when you call these methods:
+The `async` and `await` methods runs by default on a background concurrent queue. Of course, you can choose your own queues and call the following methods:
 
 ```swift
-async(on: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+DispatchQueue.global(qos: .default).async {
 
 }
 
-try await(on: dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+try DispatchQueue.global(qos: .default).await {
 
 }
 ```
@@ -147,13 +149,19 @@ $ touch Podfile
 $ edit Podfile
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
-pod 'AwaitKit', '~> 1.0.1'
+pod 'AwaitKit', '~> 2.0.0'
 ```
 
 Install into your project:
 
 ``` bash
 $ pod install
+```
+
+If CocoaPods did not find the `PromiseKit 4.0.2` dependency execute this command:
+
+```bash
+$ pod repo update
 ```
 
 Open your project in Xcode from the .xcworkspace file (not the usual project file)
@@ -181,7 +189,7 @@ Note that the [Swift Package Manager](https://swift.org/package-manager) is stil
 
 ### Manually
 
-[Download](https://github.com/YannickL/AwaitKit/archive/master.zip) the project and copy the `AwaitKit` folder into your project to use it in. Note that you also need to download the PromiseKit library and import it to your project.
+[Download](https://github.com/YannickL/AwaitKit/archive/master.zip) the project and copy the `AwaitKit` folder into your project to use it in. Note that you also need to download the [PromiseKit](https://github.com/mxcl/PromiseKit) library and import it to your project.
 
 ## Contact
 

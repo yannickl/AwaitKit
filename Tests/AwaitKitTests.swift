@@ -24,11 +24,52 @@
  *
  */
 
-import PackageDescription
+@testable import AwaitKitExample
+import PromiseKit
+import XCTest
 
-let package = Package(
-  name: "AwaitKit",
-  dependencies: [
-    .Package(url: "https://github.com/mxcl/PromiseKit.git", majorVersion: 4, minorVersion: 0)
-  ]
-)
+class AwaitKitTests: XCTestCase {
+  func testExcludeSameQueue() {
+    let promise = Promise { resolve, reject in
+      resolve()
+    }
+
+    XCTAssertThrowsError(try DispatchQueue.main.await(promise))
+  }
+
+  func testAsyncAndAwaitOnDifferentQueue() {
+    let expect = expectation(description: "Async should fulfill")
+
+    let promise = Promise { resolve, reject in
+      resolve()
+    }
+
+    let result: Promise<Void> = async {
+      try await(promise)
+    }
+
+    _ = result.then { _ in
+      expect.fulfill()
+    }
+
+    waitForExpectations(timeout: 0.1, handler: nil)
+  }
+
+  func testImbricationQueue() {
+    let expect = expectation(description: "Async should fulfill")
+
+    let promise = Promise { resolve, reject in
+      resolve()
+    }
+
+    let result: Promise<Void> = async {
+      try await(async { try await(promise) })
+    }
+
+    _ = result.then { _ in
+      expect.fulfill()
+    }
+
+    waitForExpectations(timeout: 0.1, handler: nil)
+  }
+}

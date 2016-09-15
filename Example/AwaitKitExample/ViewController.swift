@@ -17,24 +17,31 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    let user = try! await(signInWithUsername("Foo", password: "Bar"))
+    async {
+      throw NSError(domain: "com.yannickloriot.error", code: 3, userInfo: nil)
+    }
+
+    let user = try! await(signIn(username: "Foo", password: "Bar"))
     try! await(sendWelcomeMailToUser(user))
     try! await(redirectToThankYouScreen())
-
+    
     print("All done with \(user)!")
   }
 
   // MARK: - Promises
 
-  func signInWithUsername(name: String, password: String) -> Promise<User> {
+  func signIn(username name: String, password: String) -> Promise<User> {
     return Promise { resolve, reject in
       resolve(User(name: name))
     }
   }
 
-  func sendWelcomeMailToUser(user: User) -> Promise<Void> {
+  func sendWelcomeMailToUser(_ user: User) -> Promise<Void> {
     return Promise { resolve, reject in
-      dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1 * NSEC_PER_SEC)), dispatch_queue_create("com.yannickloriot.queue", DISPATCH_QUEUE_CONCURRENT), {
+      let deadlineTime = DispatchTime.now() + .seconds(1)
+      let queue        = DispatchQueue(label: "com.yannickloriot.queue", attributes: .concurrent)
+
+      queue.asyncAfter(deadline: deadlineTime, execute: {
         resolve()
       })
     }
@@ -42,7 +49,10 @@ class ViewController: UIViewController {
 
   func redirectToThankYouScreen() -> Promise<Void> {
     return Promise { resolve, reject in
-      dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1 * NSEC_PER_SEC)), dispatch_queue_create("com.yannickloriot.queue", DISPATCH_QUEUE_CONCURRENT), {
+      let deadlineTime = DispatchTime.now() + .seconds(1)
+      let queue        = DispatchQueue(label: "com.yannickloriot.queue", attributes: .concurrent)
+
+      queue.asyncAfter(deadline: deadlineTime, execute: {
         resolve()
       })
     }
