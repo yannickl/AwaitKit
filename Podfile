@@ -32,5 +32,7 @@ abstract_target 'Framework' do
 
   target 'Example' do
     platform :ios, '8.0'
+    
+    pod 'AwaitKit', :path => '.'
   end
 end

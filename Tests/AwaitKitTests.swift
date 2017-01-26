@@ -33,7 +33,7 @@ class AwaitKitTests: XCTestCase {
       resolve()
     }
 
-    XCTAssertThrowsError(try DispatchQueue.main.await(promise))
+    XCTAssertThrowsError(try await(promise, queue: DispatchQueue.main))
   }
 
   func testAsyncAndAwaitOnDifferentQueue() {
