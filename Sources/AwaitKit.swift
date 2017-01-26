@@ -27,28 +27,36 @@
 import Foundation
 import PromiseKit
 
-let asyncQueue = DispatchQueue(label: "com.yannickloriot.asyncqueue", attributes: .concurrent)
-let awaitQueue = DispatchQueue(label: "com.yannickloriot.awaitqueue", attributes: .concurrent)
+/// Error type.
+public enum Error: Swift.Error {
+    case general
+}
+
+/// Convenience struct to make the background job.
+public struct Queue {
+    static let async = DispatchQueue(label: "com.yannickloriot.asyncqueue", attributes: .concurrent)
+    static let await = DispatchQueue(label: "com.yannickloriot.awaitqueue", attributes: .concurrent)
+}
 
 // MARK: - Async -
 
 /**
  Yields the execution to the given closure and returns a new promise.
-
+ 
  - parameter body: The closure that is executed on a concurrent queue.
  - returns: A new promise that is resolved when the provided closure returned.
  */
 public func async<T>(_ body: @escaping () throws -> T) -> Promise<T> {
-    return asyncQueue.promise(execute: body)
+    return Queue.async.promise(execute: body)
 }
 
 /**
  Yields the execution to the given closure which returns nothing.
-
+ 
  - parameter body: The closure that is executed on a concurrent queue.
  */
 public func async(_ body: @escaping () throws -> Void) {
-    async(body, queue: asyncQueue)
+    async(body, queue: Queue.async)
 }
 
 /**
@@ -76,26 +84,26 @@ public func async(_ body: @escaping () throws -> Void, queue: DispatchQueue) {
 
 /**
  Awaits that the given closure finished and returns its value or throws an error if the closure failed.
-
+ 
  - parameter body: The closure that is executed on a concurrent queue.
  - throws: The error sent by the closure.
  - returns: The value of the closure when it is done.
  */
 @discardableResult
 public func await<T>(_ body: @escaping () throws -> T) throws -> T {
-    return try await(body, queue: awaitQueue)
+    return try await(body, queue: Queue.await)
 }
 
 /**
  Awaits that the given promise resolved and returns its value or throws an error if the promise failed.
-
+ 
  - parameter promise: The promise to resolve.
  - throws: The error produced when the promise is rejected.
  - returns: The value of the promise when it is resolved.
  */
 @discardableResult
 public func await<T>(_ promise: Promise<T>) throws -> T {
-    return try await(promise, queue: awaitQueue)
+    return try await(promise, queue: Queue.await)
 }
 
 /**
@@ -130,7 +138,7 @@ public func await<T>(_ promise: Promise<T>, queue: DispatchQueue) throws -> T {
     }
     
     var result: T?
-    var error: Error?
+    var error: Swift.Error?
     
     let semaphore = DispatchSemaphore(value: 0)
     
@@ -149,7 +157,7 @@ public func await<T>(_ promise: Promise<T>, queue: DispatchQueue) throws -> T {
     _ = semaphore.wait(timeout: DispatchTime(uptimeNanoseconds: UINT64_MAX))
     
     guard let unwrappedResult = result else {
-        throw error!
+        throw error ?? Error.general
     }
     
     return unwrappedResult
