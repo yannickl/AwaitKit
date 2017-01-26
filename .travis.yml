@@ -21,6 +21,7 @@ env:
     - DESTINATION="arch=x86_64"                    SCHEME="$MACOS_FRAMEWORK_SCHEME"   RUN_TESTS="YES" POD_LINT="NO"
 script:
   - set -o pipefail
+  - pod repo update
   - xcodebuild -version
 
   # Build Framework in Debug and Run Tests if specified
