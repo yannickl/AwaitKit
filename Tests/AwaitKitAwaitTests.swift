@@ -24,7 +24,6 @@
  *
  */
 
-@testable import AwaitKitExample
 import PromiseKit
 import XCTest
 

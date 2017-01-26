@@ -1,19 +1,22 @@
 Pod::Spec.new do |s|
   s.name             = 'AwaitKit'
-  s.version          = '2.0.0'
+  s.version          = '2.1.0'
   s.license          = 'MIT'
   s.summary          = 'The ES8 Async/Await control flow for Swift '
-  s.homepage         = 'https://github.com/yannickl/AwaitKit.git'
+  s.homepage         = 'https://github.com/arturgrigor/AwaitKit.git'
   s.social_media_url = 'https://twitter.com/yannickloriot'
   s.authors          = { 'Yannick Loriot' => 'contact@yannickloriot.com' }
-  s.source           = { :git => 'https://github.com/yannickl/AwaitKit.git', :tag => s.version }
+  s.source           = { :git => 'https://github.com/arturgrigor/AwaitKit.git', :tag => s.version }
   s.screenshot       = 'http://yannickloriot.com/resources/AwaitKit-Arista-Banner.png'
 
   s.ios.deployment_target = '8.0'
+  s.osx.deployment_target = '10.10'
+  s.watchos.deployment_target = '2.0'
+  s.tvos.deployment_target = '9.0'
 
   s.ios.framework = 'Foundation'
 
-  s.dependency 'PromiseKit', '~> 4.0'
+  s.dependency 'PromiseKit', '~> 4.1'
 
   s.source_files = 'Sources/**/*.swift'
   s.requires_arc = true
