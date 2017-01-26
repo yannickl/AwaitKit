@@ -19,8 +19,6 @@ env:
     - DESTINATION="OS=10.0,name=Apple TV 1080p"    SCHEME="$TVOS_FRAMEWORK_SCHEME"    RUN_TESTS="YES" POD_LINT="NO"
 
     - DESTINATION="arch=x86_64"                    SCHEME="$MACOS_FRAMEWORK_SCHEME"   RUN_TESTS="YES" POD_LINT="NO"
-before_install:
-  - pod repo update
 script:
   - set -o pipefail
   - xcodebuild -version
