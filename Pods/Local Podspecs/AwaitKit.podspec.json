@@ -1,16 +1,16 @@
 {
   "name": "AwaitKit",
-  "version": "2.1.1",
+  "version": "2.1.0",
   "license": "MIT",
   "summary": "The ES8 Async/Await control flow for Swift",
-  "homepage": "https://github.com/arturgrigor/AwaitKit.git",
+  "homepage": "https://github.com/yannickl/AwaitKit.git",
   "social_media_url": "https://twitter.com/yannickloriot",
   "authors": {
     "Yannick Loriot": "contact@yannickloriot.com"
   },
   "source": {
-    "git": "https://github.com/arturgrigor/AwaitKit.git",
-    "tag": "2.1.1"
+    "git": "https://github.com/yannickl/AwaitKit.git",
+    "tag": "2.1.0"
   },
   "screenshots": "http://yannickloriot.com/resources/AwaitKit-Arista-Banner.png",
   "platforms": {

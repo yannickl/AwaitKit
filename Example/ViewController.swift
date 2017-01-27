@@ -17,7 +17,7 @@ struct User {
 class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    
     AwaitKit.async {
       throw NSError(domain: "com.yannickloriot.error", code: 3, userInfo: nil)
     }

@@ -1,5 +1,5 @@
 PODS:
-  - AwaitKit (2.1.1):
+  - AwaitKit (2.1.0):
     - PromiseKit (~> 4.1)
   - PromiseKit (4.1.4):
     - PromiseKit/Foundation (= 4.1.4)
@@ -19,10 +19,10 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   AwaitKit:
-    :path: "."
+    :path: .
 
 SPEC CHECKSUMS:
-  AwaitKit: ee798becc1fadf2467e4ae6f86403d0ca9d03419
+  AwaitKit: 49c8a510ab469669c0c73cc19414b12f5ed0765f
   PromiseKit: e69aead34c817988ea688b1085aee21300d6dcb8
 
 PODFILE CHECKSUM: 98e9395ec864653fc03f94e02aa85ae96675a83d

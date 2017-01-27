@@ -15,6 +15,20 @@
 		A72C78454A82092D1DC38EB5 /* Pods_Framework_AwaitKit_watchOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 440B30D022D4D188976E829E /* Pods_Framework_AwaitKit_watchOS.framework */; };
 		C7A9A1A76139041B1D628ED8 /* Pods_Framework_AwaitKit_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B2C31A45B70D27811EF58B /* Pods_Framework_AwaitKit_iOS.framework */; };
 		F995439C78F375CEBAB2562B /* Pods_Framework_AwaitKit_iOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64C6787B5F0ABDAEAFAFACE /* Pods_Framework_AwaitKit_iOS_Tests.framework */; };
+		FEC3485D1E3BF958000D9BF7 /* DispatchQueue+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC3485C1E3BF958000D9BF7 /* DispatchQueue+Async.swift */; };
+		FEC3485E1E3BF958000D9BF7 /* DispatchQueue+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC3485C1E3BF958000D9BF7 /* DispatchQueue+Async.swift */; };
+		FEC3485F1E3BF958000D9BF7 /* DispatchQueue+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC3485C1E3BF958000D9BF7 /* DispatchQueue+Async.swift */; };
+		FEC348601E3BF958000D9BF7 /* DispatchQueue+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC3485C1E3BF958000D9BF7 /* DispatchQueue+Async.swift */; };
+		FEC348611E3BF958000D9BF7 /* DispatchQueue+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC3485C1E3BF958000D9BF7 /* DispatchQueue+Async.swift */; };
+		FEC348621E3BF958000D9BF7 /* DispatchQueue+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC3485C1E3BF958000D9BF7 /* DispatchQueue+Async.swift */; };
+		FEC348631E3BF958000D9BF7 /* DispatchQueue+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC3485C1E3BF958000D9BF7 /* DispatchQueue+Async.swift */; };
+		FEC348651E3BF970000D9BF7 /* DispatchQueue+Await.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC348641E3BF970000D9BF7 /* DispatchQueue+Await.swift */; };
+		FEC348661E3BF970000D9BF7 /* DispatchQueue+Await.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC348641E3BF970000D9BF7 /* DispatchQueue+Await.swift */; };
+		FEC348671E3BF970000D9BF7 /* DispatchQueue+Await.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC348641E3BF970000D9BF7 /* DispatchQueue+Await.swift */; };
+		FEC348681E3BF970000D9BF7 /* DispatchQueue+Await.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC348641E3BF970000D9BF7 /* DispatchQueue+Await.swift */; };
+		FEC348691E3BF970000D9BF7 /* DispatchQueue+Await.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC348641E3BF970000D9BF7 /* DispatchQueue+Await.swift */; };
+		FEC3486A1E3BF970000D9BF7 /* DispatchQueue+Await.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC348641E3BF970000D9BF7 /* DispatchQueue+Await.swift */; };
+		FEC3486B1E3BF970000D9BF7 /* DispatchQueue+Await.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC348641E3BF970000D9BF7 /* DispatchQueue+Await.swift */; };
 		FEF014301E39E19D00C4A60B /* AwaitKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FEF0142A1E39E18700C4A60B /* AwaitKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FEF014311E39E1A200C4A60B /* AwaitKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF0142B1E39E18700C4A60B /* AwaitKit.swift */; };
 		FEF0145B1E39E25D00C4A60B /* AwaitKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FEF0142A1E39E18700C4A60B /* AwaitKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -95,6 +109,8 @@
 		E82F542971F34EE6B9D1B857 /* Pods-Framework-AwaitKit iOS Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Framework-AwaitKit iOS Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Framework-AwaitKit iOS Tests/Pods-Framework-AwaitKit iOS Tests.release.xcconfig"; sourceTree = "<group>"; };
 		F6155B85444FD265288E431B /* Pods-Framework-AwaitKit iOS Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Framework-AwaitKit iOS Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Framework-AwaitKit iOS Tests/Pods-Framework-AwaitKit iOS Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		FE93D00AEB79C3615781F78A /* Pods-Framework-AwaitKit watchOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Framework-AwaitKit watchOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Framework-AwaitKit watchOS/Pods-Framework-AwaitKit watchOS.release.xcconfig"; sourceTree = "<group>"; };
+		FEC3485C1E3BF958000D9BF7 /* DispatchQueue+Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Async.swift"; sourceTree = "<group>"; };
+		FEC348641E3BF970000D9BF7 /* DispatchQueue+Await.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Await.swift"; sourceTree = "<group>"; };
 		FEF0141E1E39E12200C4A60B /* AwaitKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AwaitKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEF0142A1E39E18700C4A60B /* AwaitKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AwaitKit.h; sourceTree = "<group>"; };
 		FEF0142B1E39E18700C4A60B /* AwaitKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwaitKit.swift; sourceTree = "<group>"; };
@@ -270,6 +286,8 @@
 			children = (
 				FEF0142A1E39E18700C4A60B /* AwaitKit.h */,
 				FEF0142B1E39E18700C4A60B /* AwaitKit.swift */,
+				FEC3485C1E3BF958000D9BF7 /* DispatchQueue+Async.swift */,
+				FEC348641E3BF970000D9BF7 /* DispatchQueue+Await.swift */,
 				FEF0142E1E39E18700C4A60B /* Info.plist */,
 				FEF014BA1E39E74800C4A60B /* Info-tvOS.plist */,
 			);
@@ -941,6 +959,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEC3485D1E3BF958000D9BF7 /* DispatchQueue+Async.swift in Sources */,
+				FEC348651E3BF970000D9BF7 /* DispatchQueue+Await.swift in Sources */,
 				FEF014311E39E1A200C4A60B /* AwaitKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -949,6 +969,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEC3485F1E3BF958000D9BF7 /* DispatchQueue+Async.swift in Sources */,
+				FEC348671E3BF970000D9BF7 /* DispatchQueue+Await.swift in Sources */,
 				FEF014BC1E39E9E900C4A60B /* AwaitKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -957,6 +979,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEC348611E3BF958000D9BF7 /* DispatchQueue+Async.swift in Sources */,
+				FEC348691E3BF970000D9BF7 /* DispatchQueue+Await.swift in Sources */,
 				FEF014BF1E39E9EA00C4A60B /* AwaitKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -965,6 +989,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEC348631E3BF958000D9BF7 /* DispatchQueue+Async.swift in Sources */,
+				FEC3486B1E3BF970000D9BF7 /* DispatchQueue+Await.swift in Sources */,
 				FEF014C21E39E9EA00C4A60B /* AwaitKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -986,6 +1012,8 @@
 				FEF014AF1E39E52900C4A60B /* AwaitKitTests.swift in Sources */,
 				FEF014A91E39E52900C4A60B /* AwaitKitAsyncTests.swift in Sources */,
 				FEF014C81E39EA9100C4A60B /* AwaitKit.swift in Sources */,
+				FEC348661E3BF970000D9BF7 /* DispatchQueue+Await.swift in Sources */,
+				FEC3485E1E3BF958000D9BF7 /* DispatchQueue+Async.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -997,6 +1025,8 @@
 				FEF014B01E39E52900C4A60B /* AwaitKitTests.swift in Sources */,
 				FEF014AA1E39E52900C4A60B /* AwaitKitAsyncTests.swift in Sources */,
 				FEF014CB1E39EA9200C4A60B /* AwaitKit.swift in Sources */,
+				FEC348681E3BF970000D9BF7 /* DispatchQueue+Await.swift in Sources */,
+				FEC348601E3BF958000D9BF7 /* DispatchQueue+Async.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1008,6 +1038,8 @@
 				FEF014E71E39EC0A00C4A60B /* AwaitKitTests.swift in Sources */,
 				FEF014E51E39EC0A00C4A60B /* AwaitKitAsyncTests.swift in Sources */,
 				FEF014E81E39EC1700C4A60B /* AwaitKit.swift in Sources */,
+				FEC3486A1E3BF970000D9BF7 /* DispatchQueue+Await.swift in Sources */,
+				FEC348621E3BF958000D9BF7 /* DispatchQueue+Async.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
