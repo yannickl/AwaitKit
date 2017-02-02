@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>AwaitKit iOS.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>AwaitKit macOS.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>AwaitKit tvOS.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>AwaitKit watchOS.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>Example.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>FEF0141D1E39E12200C4A60B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FEF014381E39E1C900C4A60B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FEF014451E39E1D300C4A60B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FEF014521E39E1DA00C4A60B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FEF014641E39E43400C4A60B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FEF0147A1E39E4CE00C4A60B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FEF014891E39E4DE00C4A60B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FEF014981E39E4EE00C4A60B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FEF014D91E39EBEC00C4A60B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

@@ -1,0 +1,6 @@
+framework module Pods_Framework_AwaitKit_tvOS {
+  umbrella header "Pods-Framework-AwaitKit tvOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

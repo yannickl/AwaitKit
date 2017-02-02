@@ -27,51 +27,75 @@
 import Foundation
 import PromiseKit
 
-/// Convenience class to make the background job.
-final class AwaitKit {
-  static let asyncQueue = DispatchQueue(label: "com.yannickloriot.asyncqueue", attributes: .concurrent)
-  static let awaitQueue = DispatchQueue(label: "com.yannickloriot.awaitqueue", attributes: .concurrent)
+/// Error type.
+public enum Error: Swift.Error {
+    case general
+}
+
+/// Convenience struct to make the background job.
+public struct Queue {
+    static let async = DispatchQueue(label: "com.yannickloriot.asyncqueue", attributes: .concurrent)
+    static let await = DispatchQueue(label: "com.yannickloriot.awaitqueue", attributes: .concurrent)
+}
+
+public final class Extension<Base> {
+    public let base: Base
+    public init(_ base: Base) {
+        self.base = base
+    }
 }
 
 /**
- Yields the execution to the given closure and returns a new promise.
+ A type that has AwaitKit extensions.
+ */
+public protocol AwaitKitCompatible {
+    associatedtype CompatibleType
+    var ak: CompatibleType { get }
+}
 
+public extension AwaitKitCompatible {
+    public var ak: Extension<Self> {
+        get { return Extension(self) }
+    }
+}
+
+extension DispatchQueue: AwaitKitCompatible { }
+
+/**
+ Yields the execution to the given closure and returns a new promise.
  - parameter body: The closure that is executed on a concurrent queue.
  - returns: A new promise that is resolved when the provided closure returned.
  */
 public func async<T>(_ body: @escaping () throws -> T) -> Promise<T> {
-  return AwaitKit.asyncQueue.promise(execute: body)
+    return Queue.async.promise(execute: body)
 }
 
 /**
  Yields the execution to the given closure which returns nothing.
-
  - parameter body: The closure that is executed on a concurrent queue.
  */
 public func async(_ body: @escaping () throws -> Void) {
-  AwaitKit.asyncQueue.async(body)
+    Queue.async.ak.async(body)
 }
 
 /**
  Awaits that the given closure finished and returns its value or throws an error if the closure failed.
-
  - parameter body: The closure that is executed on a concurrent queue.
  - throws: The error sent by the closure.
  - returns: The value of the closure when it is done.
  */
 @discardableResult
 public func await<T>(_ body: @escaping () throws -> T) throws -> T {
-  return try AwaitKit.awaitQueue.await(body)
+    return try Queue.await.ak.await(body)
 }
 
 /**
  Awaits that the given promise resolved and returns its value or throws an error if the promise failed.
-
  - parameter promise: The promise to resolve.
  - throws: The error produced when the promise is rejected.
  - returns: The value of the promise when it is resolved.
  */
 @discardableResult
 public func await<T>(_ promise: Promise<T>) throws -> T {
-  return try AwaitKit.awaitQueue.await(promise)
+    return try Queue.await.ak.await(promise)
 }

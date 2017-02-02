@@ -27,25 +27,25 @@
 import Foundation
 import PromiseKit
 
-extension DispatchQueue {
-  /**
-   Yields the execution to the given closure and returns a new promise.
-
-   - Parameter body: The closure that is executed on the given queue.
-   - Returns: A new promise that is resolved when the provided closure returned.
-   */
-  public final func async<T>(_ body: @escaping () throws -> T) -> Promise<T> {
-    return promise(execute: body)
-  }
-
-  /**
-   Yields the execution to the given closure which returns nothing.
-
-   - Parameter body: The closure that is executed on the given queue.
-   */
-  public final func async(_ body: @escaping () throws -> Void) {
-    let promise: Promise<Void> = async(body)
+extension Extension where Base: DispatchQueue {
+    /**
+     Yields the execution to the given closure and returns a new promise.
+     
+     - Parameter body: The closure that is executed on the given queue.
+     - Returns: A new promise that is resolved when the provided closure returned.
+     */
+    public final func async<T>(_ body: @escaping () throws -> T) -> Promise<T> {
+        return self.base.promise(execute: body)
+    }
     
-    promise.catch { _ in }
-  }
+    /**
+     Yields the execution to the given closure which returns nothing.
+     
+     - Parameter body: The closure that is executed on the given queue.
+     */
+    public final func async(_ body: @escaping () throws -> Void) {
+        let promise: Promise<Void> = async(body)
+        
+        promise.catch { _ in }
+    }
 }

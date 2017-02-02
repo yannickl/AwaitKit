@@ -1,13 +1,46 @@
 language: objective-c
 osx_image: xcode8
-before_install:
-  - gem install xcpretty
-  - gem install cocoapods
-  - pod repo update
+env:
+  global:
+  - LC_CTYPE=en_US.UTF-8
+  - LANG=en_US.UTF-8
+  - WORKSPACE=AwaitKit.xcworkspace
+  - IOS_FRAMEWORK_SCHEME="AwaitKit iOS"
+  - MACOS_FRAMEWORK_SCHEME="AwaitKit macOS"
+  - TVOS_FRAMEWORK_SCHEME="AwaitKit tvOS"
+  - WATCHOS_FRAMEWORK_SCHEME="AwaitKit watchOS"
+  matrix:
+    - DESTINATION="OS=3.0,name=Apple Watch - 42mm" SCHEME="$WATCHOS_FRAMEWORK_SCHEME" RUN_TESTS="NO"  POD_LINT="NO" RUN_CODECOV="NO"
+    - DESTINATION="OS=2.0,name=Apple Watch - 42mm" SCHEME="$WATCHOS_FRAMEWORK_SCHEME" RUN_TESTS="NO"  POD_LINT="NO" RUN_CODECOV="NO"
+
+    - DESTINATION="OS=10.0,name=iPhone 7 Plus"     SCHEME="$IOS_FRAMEWORK_SCHEME"     RUN_TESTS="YES" POD_LINT="NO" RUN_CODECOV="YES"
+    - DESTINATION="OS=9.0,name=iPad 2"             SCHEME="$IOS_FRAMEWORK_SCHEME"     RUN_TESTS="YES" POD_LINT="NO" RUN_CODECOV="NO"
+
+    - DESTINATION="OS=10.0,name=Apple TV 1080p"    SCHEME="$TVOS_FRAMEWORK_SCHEME"    RUN_TESTS="YES" POD_LINT="NO" RUN_CODECOV="NO"
 script:
-  - cd Example
-  - pod install
+  - set -o pipefail
   - xcodebuild -version
-  - xcodebuild -workspace AwaitKitExample.xcworkspace -scheme AwaitKitTests -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 6,OS=9.0" -configuration Debug GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES ONLY_ACTIVE_ARCH=YES test | xcpretty -c
+
+  # Build Framework in Debug and Run Tests if specified
+  - if [ $RUN_TESTS == "YES" ]; then
+      travis_retry xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Debug GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
+    else
+      travis_retry xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty;
+    fi
+
+  # Build Framework in Release and Run Tests if specified
+  - if [ $RUN_TESTS == "YES" ]; then
+      travis_retry xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
+    else
+      travis_retry xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO build | xcpretty;
+    fi
+
+  # Run `pod lib lint` if specified
+  - if [ $POD_LINT == "YES" ]; then
+      pod lib lint;
+    fi
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  # Run the `codecov` service if specified
+  - if [ $RUN_CODECOV == "YES" ]; then
+      bash <(curl -s https://codecov.io/bash);
+    fi
