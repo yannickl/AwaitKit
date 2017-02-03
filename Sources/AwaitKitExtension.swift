@@ -25,27 +25,34 @@
  */
 
 import Foundation
-import PromiseKit
 
-extension Extension where Base: DispatchQueue {
-  /**
-   Yields the execution to the given closure and returns a new promise.
+/// The generic object to add an `ak` category. Here the base will be the DispatchQueue.
+public final class Extension<Base> {
+  /// The base class.
+  public let base: Base
 
-   - Parameter body: The closure that is executed on the given queue.
-   - Returns: A new promise that is resolved when the provided closure returned.
-   */
-  public final func async<T>(_ body: @escaping () throws -> T) -> Promise<T> {
-    return base.promise(execute: body)
-  }
-
-  /**
-   Yields the execution to the given closure which returns nothing.
-
-   - Parameter body: The closure that is executed on the given queue.
-   */
-  public final func async(_ body: @escaping () throws -> Void) {
-    let promise: Promise<Void> = async(body)
-
-    promise.catch { _ in }
+  /// Init with the base class.
+  public init(_ base: Base) {
+    self.base = base
   }
 }
+
+/**
+ A type that has AwaitKit extensions.
+ */
+public protocol AwaitKitCompatible {
+  associatedtype CompatibleType
+
+  /// The `ak` category.
+  var ak: CompatibleType { get }
+}
+
+public extension AwaitKitCompatible {
+  /// By default the `ak` category returns an Extension object which contains itself.
+  public var ak: Extension<Self> {
+    get { return Extension(self) }
+  }
+}
+
+/// Extends the DispatchQueue to support the AwaitKit.
+extension DispatchQueue: AwaitKitCompatible { }

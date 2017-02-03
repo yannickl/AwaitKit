@@ -27,39 +27,11 @@
 import Foundation
 import PromiseKit
 
-/// Error type.
-public enum Error: Swift.Error {
-    case general
-}
-
 /// Convenience struct to make the background job.
 public struct Queue {
-    static let async = DispatchQueue(label: "com.yannickloriot.asyncqueue", attributes: .concurrent)
-    static let await = DispatchQueue(label: "com.yannickloriot.awaitqueue", attributes: .concurrent)
+  static let async = DispatchQueue(label: "com.yannickloriot.asyncqueue", attributes: .concurrent)
+  static let await = DispatchQueue(label: "com.yannickloriot.awaitqueue", attributes: .concurrent)
 }
-
-public final class Extension<Base> {
-    public let base: Base
-    public init(_ base: Base) {
-        self.base = base
-    }
-}
-
-/**
- A type that has AwaitKit extensions.
- */
-public protocol AwaitKitCompatible {
-    associatedtype CompatibleType
-    var ak: CompatibleType { get }
-}
-
-public extension AwaitKitCompatible {
-    public var ak: Extension<Self> {
-        get { return Extension(self) }
-    }
-}
-
-extension DispatchQueue: AwaitKitCompatible { }
 
 /**
  Yields the execution to the given closure and returns a new promise.
@@ -67,7 +39,7 @@ extension DispatchQueue: AwaitKitCompatible { }
  - returns: A new promise that is resolved when the provided closure returned.
  */
 public func async<T>(_ body: @escaping () throws -> T) -> Promise<T> {
-    return Queue.async.promise(execute: body)
+  return Queue.async.promise(execute: body)
 }
 
 /**
@@ -75,7 +47,7 @@ public func async<T>(_ body: @escaping () throws -> T) -> Promise<T> {
  - parameter body: The closure that is executed on a concurrent queue.
  */
 public func async(_ body: @escaping () throws -> Void) {
-    Queue.async.ak.async(body)
+  Queue.async.ak.async(body)
 }
 
 /**
@@ -86,7 +58,7 @@ public func async(_ body: @escaping () throws -> Void) {
  */
 @discardableResult
 public func await<T>(_ body: @escaping () throws -> T) throws -> T {
-    return try Queue.await.ak.await(body)
+  return try Queue.await.ak.await(body)
 }
 
 /**
@@ -97,5 +69,5 @@ public func await<T>(_ body: @escaping () throws -> T) throws -> T {
  */
 @discardableResult
 public func await<T>(_ promise: Promise<T>) throws -> T {
-    return try Queue.await.ak.await(promise)
+  return try Queue.await.ak.await(promise)
 }

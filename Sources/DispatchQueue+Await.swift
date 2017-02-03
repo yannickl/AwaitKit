@@ -28,60 +28,60 @@ import Foundation
 import PromiseKit
 
 extension Extension where Base: DispatchQueue {
-    /**
-     Awaits that the given closure finished on the receiver and returns its value or throws an error if the closure failed.
-     
-     - parameter body: The closure that is executed on the receiver.
-     - throws: The error sent by the closure.
-     - returns: The value of the closure when it is done.
-     - seeAlso: await(promise:)
-     */
-    @discardableResult
-    public final func await<T>(_ body: @escaping () throws -> T) throws -> T {
-        let promise = self.base.promise(execute: body)
-        
-        return try await(promise)
+  /**
+   Awaits that the given closure finished on the receiver and returns its value or throws an error if the closure failed.
+
+   - parameter body: The closure that is executed on the receiver.
+   - throws: The error sent by the closure.
+   - returns: The value of the closure when it is done.
+   - seeAlso: await(promise:)
+   */
+  @discardableResult
+  public final func await<T>(_ body: @escaping () throws -> T) throws -> T {
+    let promise = self.base.promise(execute: body)
+
+    return try await(promise)
+  }
+
+  /**
+   Awaits that the given promise resolved on the receiver and returns its value or throws an error if the promise failed.
+
+   - parameter promise: The promise to resolve.
+   - throws: The error produced when the promise is rejected or when the queues are the same.
+   - returns: The value of the promise when it is resolved.
+   */
+  @discardableResult
+  public final func await<T>(_ promise: Promise<T>) throws -> T {
+    guard self.base.label != DispatchQueue.main.label else {
+      throw NSError(domain: "com.yannickloriot.awaitkit", code: 0, userInfo: [
+        NSLocalizedDescriptionKey: "Operation was aborted.",
+        NSLocalizedFailureReasonErrorKey: "The current and target queues are the same."
+        ])
     }
-    
-    /**
-     Awaits that the given promise resolved on the receiver and returns its value or throws an error if the promise failed.
-     
-     - parameter promise: The promise to resolve.
-     - throws: The error produced when the promise is rejected or when the queues are the same.
-     - returns: The value of the promise when it is resolved.
-     */
-    @discardableResult
-    public final func await<T>(_ promise: Promise<T>) throws -> T {
-        guard self.base.label != DispatchQueue.main.label else {
-            throw NSError(domain: "com.yannickloriot.awaitkit", code: 0, userInfo: [
-                NSLocalizedDescriptionKey: "Operation was aborted.",
-                NSLocalizedFailureReasonErrorKey: "The current and target queues are the same."
-                ])
-        }
-        
-        var result: T?
-        var error: Swift.Error?
-        
-        let semaphore = DispatchSemaphore(value: 0)
-        
-        promise
-            .then(on: self.base) { value -> Void in
-                result = value
-                
-                semaphore.signal()
-            }
-            .catch(on: self.base) { err in
-                error = err
-                
-                semaphore.signal()
-        }
-        
-        _ = semaphore.wait(timeout: DispatchTime(uptimeNanoseconds: UINT64_MAX))
-        
-        guard let unwrappedResult = result else {
-            throw error!
-        }
-        
-        return unwrappedResult
+
+    var result: T?
+    var error: Swift.Error?
+
+    let semaphore = DispatchSemaphore(value: 0)
+
+    promise
+      .then(on: self.base) { value -> Void in
+        result = value
+
+        semaphore.signal()
+      }
+      .catch(on: self.base) { err in
+        error = err
+
+        semaphore.signal()
     }
+
+    _ = semaphore.wait(timeout: DispatchTime(uptimeNanoseconds: UINT64_MAX))
+
+    guard let unwrappedResult = result else {
+      throw error!
+    }
+
+    return unwrappedResult
+  }
 }
