@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		049C11111E462DB000C63B98 /* AwaitKitAsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C110B1E462D4000C63B98 /* AwaitKitAsyncTests.swift */; };
+		049C11121E462DB000C63B98 /* AwaitKitAwaitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C110C1E462D4000C63B98 /* AwaitKitAwaitTests.swift */; };
+		049C11131E462DB000C63B98 /* AwaitKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C110D1E462D4000C63B98 /* AwaitKitTests.swift */; };
+		049C11141E462DB000C63B98 /* AwaitKitAsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C110B1E462D4000C63B98 /* AwaitKitAsyncTests.swift */; };
+		049C11151E462DB000C63B98 /* AwaitKitAwaitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C110C1E462D4000C63B98 /* AwaitKitAwaitTests.swift */; };
+		049C11161E462DB000C63B98 /* AwaitKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C110D1E462D4000C63B98 /* AwaitKitTests.swift */; };
+		049C11171E462DB100C63B98 /* AwaitKitAsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C110B1E462D4000C63B98 /* AwaitKitAsyncTests.swift */; };
+		049C11181E462DB100C63B98 /* AwaitKitAwaitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C110C1E462D4000C63B98 /* AwaitKitAwaitTests.swift */; };
+		049C11191E462DB100C63B98 /* AwaitKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049C110D1E462D4000C63B98 /* AwaitKitTests.swift */; };
 		2F2A38879F0CEFCBFE5C6833 /* Pods_Framework_AwaitKit_macOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6EBC3B19318D38ED3F6A2B /* Pods_Framework_AwaitKit_macOS_Tests.framework */; };
 		3C15F1D6278FFF337D939952 /* Pods_Framework_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB5590CC9DE93EF357000C9C /* Pods_Framework_Example.framework */; };
 		758C88FD881A7C63C9CB1922 /* Pods_Framework_AwaitKit_tvOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 837F9B31F3A612086EF604D0 /* Pods_Framework_AwaitKit_tvOS_Tests.framework */; };
@@ -23,15 +32,6 @@
 		CE32D1761E44EA87006FBA3F /* AwaitKitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE32D16F1E44EA7F006FBA3F /* AwaitKitExtension.swift */; };
 		CE5517591E44DF38008444BB /* Info-iOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE5517571E44DF38008444BB /* Info-iOS.plist */; };
 		CE55175A1E44DF38008444BB /* Info-tvOS.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE5517581E44DF38008444BB /* Info-tvOS.plist */; };
-		CE55175B1E44E185008444BB /* AwaitKitAsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDDC4781E44DC9300B25ACC /* AwaitKitAsyncTests.swift */; };
-		CE55175C1E44E185008444BB /* AwaitKitAwaitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDDC4791E44DC9300B25ACC /* AwaitKitAwaitTests.swift */; };
-		CE55175D1E44E185008444BB /* AwaitKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDDC47A1E44DC9300B25ACC /* AwaitKitTests.swift */; };
-		CE55175E1E44E186008444BB /* AwaitKitAsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDDC4781E44DC9300B25ACC /* AwaitKitAsyncTests.swift */; };
-		CE55175F1E44E186008444BB /* AwaitKitAwaitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDDC4791E44DC9300B25ACC /* AwaitKitAwaitTests.swift */; };
-		CE5517601E44E186008444BB /* AwaitKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDDC47A1E44DC9300B25ACC /* AwaitKitTests.swift */; };
-		CE5517611E44E187008444BB /* AwaitKitAsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDDC4781E44DC9300B25ACC /* AwaitKitAsyncTests.swift */; };
-		CE5517621E44E187008444BB /* AwaitKitAwaitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDDC4791E44DC9300B25ACC /* AwaitKitAwaitTests.swift */; };
-		CE5517631E44E187008444BB /* AwaitKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDDC47A1E44DC9300B25ACC /* AwaitKitTests.swift */; };
 		F995439C78F375CEBAB2562B /* Pods_Framework_AwaitKit_iOS_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64C6787B5F0ABDAEAFAFACE /* Pods_Framework_AwaitKit_iOS_Tests.framework */; };
 		FEC3485D1E3BF958000D9BF7 /* DispatchQueue+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC3485C1E3BF958000D9BF7 /* DispatchQueue+Async.swift */; };
 		FEC3485E1E3BF958000D9BF7 /* DispatchQueue+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC3485C1E3BF958000D9BF7 /* DispatchQueue+Async.swift */; };
@@ -91,6 +91,9 @@
 
 /* Begin PBXFileReference section */
 		048F4BE2B4DF9851A73AD79E /* Pods-Framework-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Framework-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Framework-Example/Pods-Framework-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		049C110B1E462D4000C63B98 /* AwaitKitAsyncTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AwaitKitAsyncTests.swift; path = AwaitKitTests/AwaitKitAsyncTests.swift; sourceTree = "<group>"; };
+		049C110C1E462D4000C63B98 /* AwaitKitAwaitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AwaitKitAwaitTests.swift; path = AwaitKitTests/AwaitKitAwaitTests.swift; sourceTree = "<group>"; };
+		049C110D1E462D4000C63B98 /* AwaitKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AwaitKitTests.swift; path = AwaitKitTests/AwaitKitTests.swift; sourceTree = "<group>"; };
 		3CDF3D77988F998F235AE77D /* Pods-Framework-AwaitKit macOS Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Framework-AwaitKit macOS Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Framework-AwaitKit macOS Tests/Pods-Framework-AwaitKit macOS Tests.release.xcconfig"; sourceTree = "<group>"; };
 		440B30D022D4D188976E829E /* Pods_Framework_AwaitKit_watchOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Framework_AwaitKit_watchOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54B2C31A45B70D27811EF58B /* Pods_Framework_AwaitKit_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Framework_AwaitKit_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,9 +113,6 @@
 		CE5517571E44DF38008444BB /* Info-iOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
 		CE5517581E44DF38008444BB /* Info-tvOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
 		CECB4F79C21D344D10BCC2A0 /* Pods-Framework-AwaitKit watchOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Framework-AwaitKit watchOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Framework-AwaitKit watchOS/Pods-Framework-AwaitKit watchOS.debug.xcconfig"; sourceTree = "<group>"; };
-		CEDDC4781E44DC9300B25ACC /* AwaitKitAsyncTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwaitKitAsyncTests.swift; sourceTree = "<group>"; };
-		CEDDC4791E44DC9300B25ACC /* AwaitKitAwaitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwaitKitAwaitTests.swift; sourceTree = "<group>"; };
-		CEDDC47A1E44DC9300B25ACC /* AwaitKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwaitKitTests.swift; sourceTree = "<group>"; };
 		CFD46C6F2E471C932035349B /* Pods-Framework-AwaitKit tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Framework-AwaitKit tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Framework-AwaitKit tvOS/Pods-Framework-AwaitKit tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		D90A919E3321F67A7F84D310 /* Pods_Framework_AwaitKit_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Framework_AwaitKit_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E64C6787B5F0ABDAEAFAFACE /* Pods_Framework_AwaitKit_iOS_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Framework_AwaitKit_iOS_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -315,9 +315,9 @@
 		FEF014A41E39E52900C4A60B /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				CEDDC4781E44DC9300B25ACC /* AwaitKitAsyncTests.swift */,
-				CEDDC4791E44DC9300B25ACC /* AwaitKitAwaitTests.swift */,
-				CEDDC47A1E44DC9300B25ACC /* AwaitKitTests.swift */,
+				049C110B1E462D4000C63B98 /* AwaitKitAsyncTests.swift */,
+				049C110C1E462D4000C63B98 /* AwaitKitAwaitTests.swift */,
+				049C110D1E462D4000C63B98 /* AwaitKitTests.swift */,
 				FEF014B81E39E73200C4A60B /* Info.plist */,
 			);
 			name = Tests;
@@ -1017,11 +1017,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEF014C81E39EA9100C4A60B /* AwaitKit.swift in Sources */,
-				CE55175D1E44E185008444BB /* AwaitKitTests.swift in Sources */,
-				CE55175C1E44E185008444BB /* AwaitKitAwaitTests.swift in Sources */,
+				049C11131E462DB000C63B98 /* AwaitKitTests.swift in Sources */,
 				FEC348661E3BF970000D9BF7 /* DispatchQueue+Await.swift in Sources */,
 				CE32D1711E44EA85006FBA3F /* AwaitKitExtension.swift in Sources */,
-				CE55175B1E44E185008444BB /* AwaitKitAsyncTests.swift in Sources */,
+				049C11111E462DB000C63B98 /* AwaitKitAsyncTests.swift in Sources */,
+				049C11121E462DB000C63B98 /* AwaitKitAwaitTests.swift in Sources */,
 				FEC3485E1E3BF958000D9BF7 /* DispatchQueue+Async.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1031,11 +1031,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEF014CB1E39EA9200C4A60B /* AwaitKit.swift in Sources */,
-				CE5517601E44E186008444BB /* AwaitKitTests.swift in Sources */,
-				CE55175F1E44E186008444BB /* AwaitKitAwaitTests.swift in Sources */,
+				049C11161E462DB000C63B98 /* AwaitKitTests.swift in Sources */,
 				FEC348681E3BF970000D9BF7 /* DispatchQueue+Await.swift in Sources */,
 				CE32D1731E44EA86006FBA3F /* AwaitKitExtension.swift in Sources */,
-				CE55175E1E44E186008444BB /* AwaitKitAsyncTests.swift in Sources */,
+				049C11141E462DB000C63B98 /* AwaitKitAsyncTests.swift in Sources */,
+				049C11151E462DB000C63B98 /* AwaitKitAwaitTests.swift in Sources */,
 				FEC348601E3BF958000D9BF7 /* DispatchQueue+Async.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1045,11 +1045,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEF014E81E39EC1700C4A60B /* AwaitKit.swift in Sources */,
-				CE5517631E44E187008444BB /* AwaitKitTests.swift in Sources */,
-				CE5517621E44E187008444BB /* AwaitKitAwaitTests.swift in Sources */,
+				049C11191E462DB100C63B98 /* AwaitKitTests.swift in Sources */,
 				FEC3486A1E3BF970000D9BF7 /* DispatchQueue+Await.swift in Sources */,
 				CE32D1751E44EA87006FBA3F /* AwaitKitExtension.swift in Sources */,
-				CE5517611E44E187008444BB /* AwaitKitAsyncTests.swift in Sources */,
+				049C11171E462DB100C63B98 /* AwaitKitAsyncTests.swift in Sources */,
+				049C11181E462DB100C63B98 /* AwaitKitAwaitTests.swift in Sources */,
 				FEC348621E3BF958000D9BF7 /* DispatchQueue+Async.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
