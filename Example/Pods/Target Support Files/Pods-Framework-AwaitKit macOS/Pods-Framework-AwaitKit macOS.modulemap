@@ -1,6 +1,0 @@
-framework module Pods_Framework_AwaitKit_macOS {
-  umbrella header "Pods-Framework-AwaitKit macOS-umbrella.h"
-
-  export *
-  module * { export * }
-}

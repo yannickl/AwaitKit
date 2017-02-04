@@ -18,3 +18,4 @@ DerivedData
 *.xcworkspace
 *.xccheckout
 *.lock
+Example/Pods/*
