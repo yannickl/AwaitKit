@@ -12,6 +12,10 @@ _AwaitKit_ is a powerful Swift library inspired by the [Async/Await specificatio
 
 Internally it uses [PromiseKit](https://github.com/mxcl/PromiseKit) to create and manage promises.
 
+<p align="center">
+    <a href="#requirements">Requirements</a> • <a href="#getting-started">Getting Started</a> • <a href="#usage">Usage</a> • <a href="#installation">Installation</a> • <a href="#contribution">Contribution</a> • <a href="#contact">Contact</a> • <a href="#license-mit">License</a>
+</p>
+
 ## Requirements
 
 - iOS 8.0+
