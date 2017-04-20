@@ -22,9 +22,9 @@ class ViewController: UIViewController {
       throw NSError(domain: "com.yannickloriot.error", code: 3, userInfo: nil)
     }
 
-    let user = try! AwaitKit.await(signIn(username: "Foo", password: "Bar"))
-    try! AwaitKit.await(sendWelcomeMailToUser(user))
-    try! AwaitKit.await(redirectToThankYouScreen())
+    let user = try! await(signIn(username: "Foo", password: "Bar"))
+    try! await(sendWelcomeMailToUser(user))
+    try! await(redirectToThankYouScreen())
 
     print("All done with \(user)!")
   }

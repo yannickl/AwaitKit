@@ -130,11 +130,11 @@ catch {
 The `async` and `await` methods runs by default on a background concurrent queue. Of course, you can choose your own queues and call the following methods:
 
 ```swift
-DispatchQueue.global(qos: .default).async {
+DispatchQueue.global(qos: .default).ak.async {
 
 }
 
-try DispatchQueue.global(qos: .default).await {
+try DispatchQueue.global(qos: .default).ak.await {
 
 }
 ```
