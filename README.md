@@ -161,7 +161,7 @@ $ touch Podfile
 $ edit Podfile
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
-pod 'AwaitKit', '~> 2.0.0'
+pod 'AwaitKit', '~> 3.0.0'
 ```
 
 Install into your project:
@@ -170,7 +170,7 @@ Install into your project:
 $ pod install
 ```
 
-If CocoaPods did not find the `PromiseKit 4.0.2` dependency execute this command:
+If CocoaPods did not find the `PromiseKit 4.1.8` dependency execute this command:
 
 ```bash
 $ pod repo update
