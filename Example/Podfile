@@ -1,6 +1,6 @@
 abstract_target 'Framework' do
   use_frameworks!
-  pod 'PromiseKit', '~> 4.1'
+  pod 'PromiseKit', '~> 4.2'
 
   target 'AwaitKit iOS' do
     platform :ios, '8.0'
