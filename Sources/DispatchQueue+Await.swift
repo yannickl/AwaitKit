@@ -76,7 +76,7 @@ extension Extension where Base: DispatchQueue {
         semaphore.signal()
     }
 
-    _ = semaphore.wait(timeout: DispatchTime(uptimeNanoseconds: UINT64_MAX))
+    _ = semaphore.wait(timeout: .distantFuture)
 
     guard let unwrappedResult = result else {
       throw error!
