@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
   s.ios.framework = 'Foundation'
 
-  s.dependency 'PromiseKit', '~> 4.2'
+  s.dependency 'PromiseKit', '~> 4.3'
 
   s.source_files = 'Sources/**/*.swift'
   s.requires_arc = true
