@@ -1,5 +1,10 @@
 # Change log
 
+## [Version 3.0.1](https://github.com/yannickl/AwaitKit/releases/tag/3.0.1)
+*Released on 2017-08-10.*
+
+- [FIX] replacing the `DispatchTime(uptimeNanoseconds: UInt64.max` by `DispatchTime.distantFuture`
+
 ## [Version 3.0.0](https://github.com/yannickl/AwaitKit/releases/tag/3.0.0)
 *Released on 2017-04-20.*
 
