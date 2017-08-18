@@ -1,0 +1,3 @@
+[submodule "Carthage/Checkouts/PromiseKit"]
+	path = Carthage/Checkouts/PromiseKit
+	url = https://github.com/mxcl/PromiseKit.git

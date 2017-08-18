@@ -24,49 +24,65 @@
  *
  */
 
+import AwaitKit
 import PromiseKit
 import XCTest
 
-class AwaitKitTests: XCTestCase {
-  func testExcludeSameQueue() {
-    let promise = Promise { resolve, reject in
-      resolve()
+class AwaitKitAsyncTests: XCTestCase {
+  let commonError = NSError(domain: "com.yannickloriot.error", code: 320, userInfo: nil)
+
+  func testSimpleDelayedValidAsyncBlock() {
+    let expect = expectation(description: "Async should return value")
+
+    let promise: Promise<String> = async {
+      Thread.sleep(forTimeInterval: 0.2)
+
+      return "AwaitedPromiseKit"
     }
 
-    XCTAssertThrowsError(try DispatchQueue.main.ak.await(promise))
-  }
-
-  func testAsyncAndAwaitOnDifferentQueue() {
-    let expect = expectation(description: "Async should fulfill")
-
-    let promise = Promise { resolve, reject in
-      resolve()
-    }
-
-    let result: Promise<Void> = async {
-      try await(promise)
-    }
-
-    _ = result.then { _ in
+    _ = promise.then { value in
       expect.fulfill()
     }
 
-    waitForExpectations(timeout: 0.1, handler: nil)
+    waitForExpectations(timeout: 0.5) { error in
+      if error == nil {
+        XCTAssertEqual(promise.value, "AwaitedPromiseKit")
+      }
+    }
   }
 
-  func testImbricationQueue() {
-    let expect = expectation(description: "Async should fulfill")
+  func testSimpleFailedAsyncBlock() {
+    let expect = expectation(description: "Async should not return value")
 
-    let promise = Promise { resolve, reject in
-      resolve()
+    let promise: Promise<String> = async {
+      throw self.commonError
     }
 
-    let result: Promise<Void> = async {
-      try await(async { try await(promise) })
-    }
-
-    _ = result.then { _ in
+    _ = promise.catch { err in
       expect.fulfill()
+    }
+
+    waitForExpectations(timeout: 0.1) { error in
+      if error == nil {
+        XCTAssertNil(promise.value)
+      }
+    }
+  }
+
+  func testNoReturnedValueAsyncBlock() {
+    let expect1 = expectation(description: "Async should not return value")
+    let expect2 = expectation(description: "Async should throw")
+
+    async {
+      expect1.fulfill()
+    }
+
+    async {
+      defer {
+        expect2.fulfill()
+      }
+
+      throw self.commonError
     }
 
     waitForExpectations(timeout: 0.1, handler: nil)
