@@ -22,14 +22,14 @@ script:
 
   # Build Framework in Debug and Run Tests if specified
   - if [ $RUN_TESTS == "YES" ]; then
-      travis_retry xcodebuild -scheme "$SCHEME" -destination "$DESTINATION" -configuration Debug GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
+      travis_retry xcodebuild -scheme "$SCHEME" -destination "$DESTINATION" GCC_GENERATE_TEST_COVERAGE_FILES=YES -enableCodeCoverage YES test | xcpretty;
     else
-      travis_retry xcodebuild -scheme "$SCHEME" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty;
+      travis_retry xcodebuild -scheme "$SCHEME" -destination "$DESTINATION" -configuration Debug build | xcpretty;
     fi
 
   # Build Framework in Release and Run Tests if specified
   - if [ $RUN_TESTS == "YES" ]; then
-      travis_retry xcodebuild -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
+      travis_retry xcodebuild -scheme "$SCHEME" -destination "$DESTINATION" GCC_GENERATE_TEST_COVERAGE_FILES=YES -enableCodeCoverage YES test | xcpretty;
     else
       travis_retry xcodebuild -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO build | xcpretty;
     fi

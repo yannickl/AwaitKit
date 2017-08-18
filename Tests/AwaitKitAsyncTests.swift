@@ -24,6 +24,7 @@
  *
  */
 
+import AwaitKit
 import PromiseKit
 import XCTest
 
