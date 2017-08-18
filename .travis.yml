@@ -18,6 +18,7 @@ env:
     - DESTINATION="arch=x86_64,platform=macOS"     RUN_TESTS="YES" RUN_CODECOV="YES"
 script:
   - set -o pipefail
+  - git submodule update --init
   - xcodebuild -version
 
   # Build Framework in Debug and Run Tests if specified
