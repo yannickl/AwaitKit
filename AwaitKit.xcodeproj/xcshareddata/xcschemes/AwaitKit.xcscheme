@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FEF014521E39E1DA00C4A60B"
+               BlueprintIdentifier = "FEF0141D1E39E12200C4A60B"
                BuildableName = "AwaitKit.framework"
-               BlueprintName = "AwaitKit watchOS"
+               BlueprintName = "AwaitKit"
                ReferencedContainer = "container:AwaitKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,7 +29,26 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       codeCoverageEnabled = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FEF0147A1E39E4CE00C4A60B"
+               BuildableName = "AwaitKit Tests.xctest"
+               BlueprintName = "AwaitKit Tests"
+               ReferencedContainer = "container:AwaitKit.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "FEF0141D1E39E12200C4A60B"
+            BuildableName = "AwaitKit.framework"
+            BlueprintName = "AwaitKit"
+            ReferencedContainer = "container:AwaitKit.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -46,9 +65,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FEF014521E39E1DA00C4A60B"
+            BlueprintIdentifier = "FEF0141D1E39E12200C4A60B"
             BuildableName = "AwaitKit.framework"
-            BlueprintName = "AwaitKit watchOS"
+            BlueprintName = "AwaitKit"
             ReferencedContainer = "container:AwaitKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,9 +83,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FEF014521E39E1DA00C4A60B"
+            BlueprintIdentifier = "FEF0141D1E39E12200C4A60B"
             BuildableName = "AwaitKit.framework"
-            BlueprintName = "AwaitKit watchOS"
+            BlueprintName = "AwaitKit"
             ReferencedContainer = "container:AwaitKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

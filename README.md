@@ -1,5 +1,6 @@
 ![AwaitKit](http://yannickloriot.com/resources/AwaitKit-Arista-Banner.png)
 
+[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Supported Platforms](https://cocoapod-badges.herokuapp.com/p/AwaitKit/badge.svg)](http://cocoadocs.org/docsets/AwaitKit/) [![Version](https://cocoapod-badges.herokuapp.com/v/AwaitKit/badge.svg)](http://cocoadocs.org/docsets/AwaitKit/)
 [![Build Status](https://travis-ci.org/yannickl/AwaitKit.svg?branch=master)](https://travis-ci.org/yannickl/AwaitKit)
 [![codecov.io](http://codecov.io/github/yannickl/AwaitKit/coverage.svg?branch=master)](http://codecov.io/github/yannickl/AwaitKit?branch=master)

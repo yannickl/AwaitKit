@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'AwaitKit'
-  s.version          = '3.0.1'
+  s.version          = '3.0.2'
   s.license          = 'MIT'
   s.summary          = 'The ES8 Async/Await control flow for Swift '
   s.homepage         = 'https://github.com/yannickl/AwaitKit.git'
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
   s.ios.framework = 'Foundation'
 
-  s.dependency 'PromiseKit', '~> 4.2'
+  s.dependency 'PromiseKit', '~> 4.3'
 
   s.source_files = 'Sources/**/*.swift'
   s.requires_arc = true
