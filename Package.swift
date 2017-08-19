@@ -29,6 +29,6 @@ import PackageDescription
 let package = Package(
   name: "AwaitKit",
   dependencies: [
-    .Package(url: "https://github.com/mxcl/PromiseKit.git", majorVersion: 4, minor: 2)
+    .Package(url: "https://github.com/mxcl/PromiseKit.git", majorVersion: 4, minor: 3)
   ]
 )
