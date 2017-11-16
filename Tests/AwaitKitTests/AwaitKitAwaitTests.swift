@@ -60,7 +60,7 @@ class AwaitKitAwaitTests: XCTestCase {
 
   func testNoValueAwaitPromise() {
     let promise: Promise<Void> = Promise { resolve, reject in
-      resolve()
+      resolve(())
     }
 
     XCTAssertNotNil(promise.value)
