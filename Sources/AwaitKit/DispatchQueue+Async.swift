@@ -26,6 +26,7 @@
 
 import Foundation
 import PromiseKit
+import Dispatch
 
 extension Extension where Base: DispatchQueue {
   /**

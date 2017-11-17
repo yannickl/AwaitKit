@@ -26,6 +26,7 @@
 
 import Foundation
 import PromiseKit
+import Dispatch
 
 /// Convenience struct to make the background job.
 public struct Queue {

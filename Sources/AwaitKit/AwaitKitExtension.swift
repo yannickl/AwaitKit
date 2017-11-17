@@ -25,6 +25,7 @@
  */
 
 import Foundation
+import Dispatch
 
 /// The generic object to add an `ak` category. Here the base will be the DispatchQueue.
 public final class Extension<Base> {
