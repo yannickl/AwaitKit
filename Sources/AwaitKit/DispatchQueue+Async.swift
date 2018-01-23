@@ -24,52 +24,29 @@
  *
  */
 
-import AwaitKit
+import Foundation
 import PromiseKit
-import XCTest
+import Dispatch
 
-class AwaitKitTests: XCTestCase {
-  func testExcludeSameQueue() {
-    let promise = Promise { resolve, reject in
-      resolve()
-    }
+extension Extension where Base: DispatchQueue {
+  /**
+   Yields the execution to the given closure and returns a new promise.
 
-    XCTAssertThrowsError(try DispatchQueue.main.ak.await(promise))
+   - Parameter body: The closure that is executed on the given queue.
+   - Returns: A new promise that is resolved when the provided closure returned.
+   */
+  public final func async<T>(_ body: @escaping () throws -> T) -> Promise<T> {
+    return base.promise(execute: body)
   }
 
-  func testAsyncAndAwaitOnDifferentQueue() {
-    let expect = expectation(description: "Async should fulfill")
+  /**
+   Yields the execution to the given closure which returns nothing.
 
-    let promise = Promise { resolve, reject in
-      resolve()
-    }
+   - Parameter body: The closure that is executed on the given queue.
+   */
+  public final func async(_ body: @escaping () throws -> Void) {
+    let promise: Promise<Void> = async(body)
 
-    let result: Promise<Void> = async {
-      try await(promise)
-    }
-
-    _ = result.then { _ in
-      expect.fulfill()
-    }
-
-    waitForExpectations(timeout: 0.1, handler: nil)
-  }
-
-  func testImbricationQueue() {
-    let expect = expectation(description: "Async should fulfill")
-
-    let promise = Promise { resolve, reject in
-      resolve()
-    }
-
-    let result: Promise<Void> = async {
-      try await(async { try await(promise) })
-    }
-
-    _ = result.then { _ in
-      expect.fulfill()
-    }
-
-    waitForExpectations(timeout: 0.1, handler: nil)
+    promise.catch { _ in }
   }
 }

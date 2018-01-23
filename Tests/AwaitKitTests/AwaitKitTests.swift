@@ -24,35 +24,52 @@
  *
  */
 
-import Foundation
+import AwaitKit
+import PromiseKit
+import XCTest
 
-/// The generic object to add an `ak` category. Here the base will be the DispatchQueue.
-public final class Extension<Base> {
-  /// The base class.
-  public let base: Base
+class AwaitKitTests: XCTestCase {
+  func testExcludeSameQueue() {
+    let promise = Promise<Void> { resolve, reject in
+      resolve(())
+    }
 
-  /// Init with the base class.
-  public init(_ base: Base) {
-    self.base = base
+    XCTAssertThrowsError(try DispatchQueue.main.ak.await(promise))
+  }
+
+  func testAsyncAndAwaitOnDifferentQueue() {
+    let expect = expectation(description: "Async should fulfill")
+
+    let promise = Promise<Void> { resolve, reject in
+      resolve(())
+    }
+
+    let result: Promise<Void> = async {
+      try await(promise)
+    }
+
+    _ = result.then { _ in
+      expect.fulfill()
+    }
+
+    waitForExpectations(timeout: 0.1, handler: nil)
+  }
+
+  func testImbricationQueue() {
+    let expect = expectation(description: "Async should fulfill")
+
+    let promise = Promise<Void> { resolve, reject in
+      resolve(())
+    }
+
+    let result: Promise<Void> = async {
+      try await(async { try await(promise) })
+    }
+
+    _ = result.then { _ in
+      expect.fulfill()
+    }
+
+    waitForExpectations(timeout: 0.1, handler: nil)
   }
 }
-
-/**
- A type that has AwaitKit extensions.
- */
-public protocol AwaitKitCompatible {
-  associatedtype CompatibleType
-
-  /// The `ak` category.
-  var ak: CompatibleType { get }
-}
-
-public extension AwaitKitCompatible {
-  /// By default the `ak` category returns an Extension object which contains itself.
-  public var ak: Extension<Self> {
-    get { return Extension(self) }
-  }
-}
-
-/// Extends the DispatchQueue to support the AwaitKit.
-extension DispatchQueue: AwaitKitCompatible { }
