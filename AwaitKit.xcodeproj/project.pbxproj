@@ -114,7 +114,8 @@
 				FE41FCD51F46D9A700CD2271 /* DispatchQueue+Await.swift */,
 				FE41FCD61F46D9A700CD2271 /* Info.plist */,
 			);
-			path = Sources;
+			name = Sources;
+			path = Sources/AwaitKit;
 			sourceTree = "<group>";
 		};
 		FE41FCD71F46D9A700CD2271 /* Tests */ = {
@@ -125,7 +126,8 @@
 				FE41FCF31F46D9DB00CD2271 /* AwaitKitTests.swift */,
 				FE41FCDC1F46D9A700CD2271 /* Info.plist */,
 			);
-			path = Tests;
+			name = Tests;
+			path = Tests/AwaitKitTests;
 			sourceTree = "<group>";
 		};
 		FE41FCFE1F46DA7800CD2271 /* Products */ = {

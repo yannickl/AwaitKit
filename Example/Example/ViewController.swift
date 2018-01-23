@@ -44,7 +44,7 @@ class ViewController: UIViewController {
       let queue        = DispatchQueue(label: "com.yannickloriot.queue", attributes: .concurrent)
 
       queue.asyncAfter(deadline: deadlineTime, execute: {
-        resolve()
+        resolve(())
       })
     }
   }
@@ -56,7 +56,7 @@ class ViewController: UIViewController {
       let queue        = DispatchQueue(label: "com.yannickloriot.queue", attributes: .concurrent)
 
       queue.asyncAfter(deadline: deadlineTime, execute: {
-        resolve()
+        resolve(())
       })
     }
   }
