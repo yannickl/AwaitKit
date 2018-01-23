@@ -21,7 +21,7 @@ Internally it uses [PromiseKit](https://github.com/mxcl/PromiseKit) to create an
 
 - iOS 8.0+
 - Xcode 8.0+
-- Swift 3.0+
+- Swift 4.0+
 
 ## Getting Started
 
@@ -162,7 +162,7 @@ $ touch Podfile
 $ edit Podfile
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
-pod 'AwaitKit', '~> 3.0.1'
+pod 'AwaitKit', '~> 4.0.0'
 ```
 
 Install into your project:
@@ -171,7 +171,7 @@ Install into your project:
 $ pod install
 ```
 
-If CocoaPods did not find the `PromiseKit 4.1.8` dependency execute this command:
+If CocoaPods did not find the `PromiseKit 4.5.1` dependency execute this command:
 
 ```bash
 $ pod repo update
@@ -214,7 +214,7 @@ $ brew install carthage
 To integrate AwaitKit into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "yannickl/AwaitKit" ~> 3.0
+github "yannickl/AwaitKit" ~> 4.0
 ```
 
 Run `carthage update` to build the framework and drag the built `AwaitKit.framework` into your Xcode project.
