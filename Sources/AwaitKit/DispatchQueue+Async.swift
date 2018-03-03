@@ -36,7 +36,7 @@ extension Extension where Base: DispatchQueue {
    - Returns: A new promise that is resolved when the provided closure returned.
    */
   public final func async<T>(_ body: @escaping () throws -> T) -> Promise<T> {
-    return base.promise(execute: body)
+    return base.async(.promise, execute: body)
   }
 
   /**

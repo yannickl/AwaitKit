@@ -40,7 +40,7 @@ public struct Queue {
  - returns: A new promise that is resolved when the provided closure returned.
  */
 public func async<T>(_ body: @escaping () throws -> T) -> Promise<T> {
-  return Queue.async.promise(execute: body)
+  return Queue.async.async(.promise, execute: body)
 }
 
 /**

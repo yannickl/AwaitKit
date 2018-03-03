@@ -39,7 +39,7 @@ extension Extension where Base: DispatchQueue {
    */
   @discardableResult
   public final func await<T>(_ body: @escaping () throws -> T) throws -> T {
-    let promise = self.base.promise(execute: body)
+    let promise = self.base.async(.promise, execute: body)
 
     return try await(promise)
   }
@@ -66,16 +66,18 @@ extension Extension where Base: DispatchQueue {
     let semaphore = DispatchSemaphore(value: 0)
 
     promise
-      .then(on: self.base) { value -> Void in
+      .then(on: self.base) { value -> Promise<Void> in
         result = value
 
         semaphore.signal()
+
+        return Promise()
       }
-      .catch(on: self.base) { err in
+      .catch(on: self.base, policy: .allErrors) { err in
         error = err
 
         semaphore.signal()
-    }
+      }
 
     _ = semaphore.wait(timeout: .distantFuture)
 

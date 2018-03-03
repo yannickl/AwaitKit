@@ -39,24 +39,24 @@ class ViewController: UIViewController {
 
   func sendWelcomeMailToUser(_ user: User) -> Promise<Void> {
     print("sendWelcomeMailToUser")
-    return Promise { resolve, reject in
+    return Promise { seal in
       let deadlineTime = DispatchTime.now() + .seconds(1)
       let queue        = DispatchQueue(label: "com.yannickloriot.queue", attributes: .concurrent)
 
       queue.asyncAfter(deadline: deadlineTime, execute: {
-        resolve(())
+        seal.fulfill(())
       })
     }
   }
 
   func redirectToThankYouScreen() -> Promise<Void> {
     print("redirectToThankYouScreen")
-    return Promise { resolve, reject in
+    return Promise { seal in
       let deadlineTime = DispatchTime.now() + .seconds(1)
       let queue        = DispatchQueue(label: "com.yannickloriot.queue", attributes: .concurrent)
 
       queue.asyncAfter(deadline: deadlineTime, execute: {
-        resolve(())
+        seal.fulfill(())
       })
     }
   }
