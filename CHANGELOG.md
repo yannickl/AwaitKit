@@ -1,5 +1,10 @@
 # Change log
 
+## [Version 5.0.0](https://github.com/yannickl/AwaitKit/releases/tag/5.0.0)
+*Released on 2018-03-03.*
+
+- Updating PromiseKit to the v6.2.
+
 ## [Version 4.0.0](https://github.com/yannickl/AwaitKit/releases/tag/4.0.0)
 *Released on 2018-01-23.*
 
