@@ -40,8 +40,10 @@ class AwaitKitAsyncTests: XCTestCase {
       return "AwaitedPromiseKit"
     }
 
-    _ = promise.then { value in
+    _ = promise.then { value -> Promise<Void> in
       expect.fulfill()
+
+      return Promise()
     }
 
     waitForExpectations(timeout: 0.5) { error in

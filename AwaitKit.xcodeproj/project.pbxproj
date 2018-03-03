@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE21EFF2204B556300BDDA39 /* AwaitKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE41FCD21F46D9A700CD2271 /* AwaitKit.swift */; };
 		FE41FCDD1F46D9AC00CD2271 /* AwaitKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE41FCD21F46D9A700CD2271 /* AwaitKit.swift */; };
 		FE41FCDE1F46D9AC00CD2271 /* AwaitKitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE41FCD31F46D9A700CD2271 /* AwaitKitExtension.swift */; };
 		FE41FCDF1F46D9AC00CD2271 /* DispatchQueue+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE41FCD41F46D9A700CD2271 /* DispatchQueue+Async.swift */; };
@@ -19,6 +20,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		CE21EFF4204B556300BDDA39 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FE41FCFD1F46DA7800CD2271 /* PromiseKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 633027EA203CC0060037E136;
+			remoteInfo = PMKDeprecatedTests;
+		};
 		FE41FD051F46DA7800CD2271 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FE41FCFD1F46DA7800CD2271 /* PromiseKit.xcodeproj */;
@@ -46,13 +54,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 630019221D596292003B4E30;
 			remoteInfo = PMKCoreTests;
-		};
-		FE41FD0D1F46DA7800CD2271 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FE41FCFD1F46DA7800CD2271 /* PromiseKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6314112F1D5978D700E24B9E;
-			remoteInfo = PMKDispatchTests;
 		};
 		FE41FD0F1F46DA8E00CD2271 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -137,7 +138,7 @@
 				FE41FD081F46DA7800CD2271 /* PMKA+Tests.xctest */,
 				FE41FD0A1F46DA7800CD2271 /* PMKBridgeTests.xctest */,
 				FE41FD0C1F46DA7800CD2271 /* PMKCoreTests.xctest */,
-				FE41FD0E1F46DA7800CD2271 /* PMKDispatchTests.xctest */,
+				CE21EFF5204B556300BDDA39 /* PMKDeprecatedTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -217,15 +218,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Yannick Loriot";
 				TargetAttributes = {
 					FE41FD5C1F46F19F00CD2271 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					FEF0141D1E39E12200C4A60B = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -256,6 +259,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		CE21EFF5204B556300BDDA39 /* PMKDeprecatedTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = PMKDeprecatedTests.xctest;
+			remoteRef = CE21EFF4204B556300BDDA39 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		FE41FD061F46DA7800CD2271 /* PromiseKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -284,13 +294,6 @@
 			remoteRef = FE41FD0B1F46DA7800CD2271 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		FE41FD0E1F46DA7800CD2271 /* PMKDispatchTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = PMKDispatchTests.xctest;
-			remoteRef = FE41FD0D1F46DA7800CD2271 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -311,6 +314,7 @@
 				FE41FD661F46F1C300CD2271 /* AwaitKitAwaitTests.swift in Sources */,
 				FE41FD671F46F1C300CD2271 /* AwaitKitTests.swift in Sources */,
 				FE41FD651F46F1C300CD2271 /* AwaitKitAsyncTests.swift in Sources */,
+				CE21EFF2204B556300BDDA39 /* AwaitKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,7 +352,7 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				INFOPLIST_FILE = "$(SRCROOT)/Tests/AwaitKitTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks @executable_path/../Frameworks @loader_path/../Frameworks";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -359,7 +363,7 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				INFOPLIST_FILE = "$(SRCROOT)/Tests/AwaitKitTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks @executable_path/../Frameworks @loader_path/../Frameworks";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -370,7 +374,9 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -378,7 +384,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -412,6 +422,7 @@
 				SUPPORTED_PLATFORMS = "macosx appletvsimulator appletvos watchsimulator iphonesimulator watchos iphoneos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
@@ -425,7 +436,9 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -433,7 +446,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -459,6 +476,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "macosx appletvsimulator appletvos watchsimulator iphonesimulator watchos iphoneos";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -477,7 +495,7 @@
 				LD_DYLIB_INSTALL_NAME = "$(DYLIB_INSTALL_NAME_BASE:standardizepath)/$(EXECUTABLE_PATH)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -492,7 +510,7 @@
 				LD_DYLIB_INSTALL_NAME = "$(DYLIB_INSTALL_NAME_BASE:standardizepath)/$(EXECUTABLE_PATH)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

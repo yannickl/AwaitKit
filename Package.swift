@@ -36,7 +36,7 @@ let package = Package(
       targets: ["AwaitKit"]),
   ],
   dependencies: [
-    .package(url: "https://github.com/mxcl/PromiseKit.git", from: "4.5.1")
+    .package(url: "https://github.com/mxcl/PromiseKit.git", from: "6.2.0")
   ],
   targets: [
     .target(

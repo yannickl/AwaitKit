@@ -30,8 +30,8 @@ import XCTest
 
 class AwaitKitTests: XCTestCase {
   func testExcludeSameQueue() {
-    let promise = Promise<Void> { resolve, reject in
-      resolve(())
+    let promise = Promise<Void> { seal in
+      seal.fulfill(())
     }
 
     XCTAssertThrowsError(try DispatchQueue.main.ak.await(promise))
@@ -40,16 +40,18 @@ class AwaitKitTests: XCTestCase {
   func testAsyncAndAwaitOnDifferentQueue() {
     let expect = expectation(description: "Async should fulfill")
 
-    let promise = Promise<Void> { resolve, reject in
-      resolve(())
+    let promise = Promise<Void> { seal in
+      seal.fulfill(())
     }
 
     let result: Promise<Void> = async {
       try await(promise)
     }
 
-    _ = result.then { _ in
+    _ = result.then { _ -> Promise<Void> in
       expect.fulfill()
+
+      return Promise()
     }
 
     waitForExpectations(timeout: 0.1, handler: nil)
@@ -58,16 +60,18 @@ class AwaitKitTests: XCTestCase {
   func testImbricationQueue() {
     let expect = expectation(description: "Async should fulfill")
 
-    let promise = Promise<Void> { resolve, reject in
-      resolve(())
+    let promise = Promise<Void> { seal in
+      seal.fulfill(())
     }
 
     let result: Promise<Void> = async {
       try await(async { try await(promise) })
     }
 
-    _ = result.then { _ in
+    _ = result.then { _ -> Promise<Void> in
       expect.fulfill()
+
+      return Promise()
     }
 
     waitForExpectations(timeout: 0.1, handler: nil)

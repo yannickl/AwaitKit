@@ -33,11 +33,11 @@ class AwaitKitAwaitTests: XCTestCase {
   let commonError     = NSError(domain: "com.yannickloriot.error", code: 320, userInfo: nil)
 
   func testSimpleAwaitPromise() {
-    let promise: Promise<String> = Promise { resolve, reject in
+    let promise: Promise<String> = Promise { seal in
       let deadlineTime = DispatchTime.now() + .seconds(1)
 
       backgroundQueue.asyncAfter(deadline: deadlineTime, execute: {
-        resolve("AwaitedPromiseKit")
+        seal.fulfill("AwaitedPromiseKit")
       })
     }
 
@@ -47,11 +47,11 @@ class AwaitKitAwaitTests: XCTestCase {
   }
 
   func testSimpleFailedAwaitPromise() {
-    let promise: Promise<String> = Promise { resolve, reject in
+    let promise: Promise<String> = Promise { seal in
       let deadlineTime = DispatchTime.now() + .seconds(1)
 
       backgroundQueue.asyncAfter(deadline: deadlineTime, execute: {
-        reject(self.commonError)
+        seal.reject(self.commonError)
       })
     }
 
@@ -59,8 +59,8 @@ class AwaitKitAwaitTests: XCTestCase {
   }
 
   func testNoValueAwaitPromise() {
-    let promise: Promise<Void> = Promise { resolve, reject in
-      resolve(())
+    let promise: Promise<Void> = Promise { seal in
+      seal.fulfill(())
     }
 
     XCTAssertNotNil(promise.value)
