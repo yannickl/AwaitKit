@@ -1,5 +1,10 @@
 # Change log
 
+## [Version 5.0.1](https://github.com/yannickl/AwaitKit/releases/tag/5.0.1)
+*Released on 2018-09-20.*
+
+- Fixing the Carthage.
+
 ## [Version 5.0.0](https://github.com/yannickl/AwaitKit/releases/tag/5.0.0)
 *Released on 2018-03-03.*
 
