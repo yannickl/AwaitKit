@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode9.2
+osx_image: xcode10.1
 env:
   global:
     - LC_CTYPE=en_US.UTF-8
@@ -11,7 +11,7 @@ env:
 
     - DESTINATION="OS=10.0,name=Apple TV 1080p"    RUN_TESTS="YES" RUN_CODECOV="NO"
 
-    - DESTINATION="OS=10.0,name=iPhone 6s"         RUN_TESTS="YES" RUN_CODECOV="YES"
+    - DESTINATION="OS=12.0,name=iPhone XS"         RUN_TESTS="YES" RUN_CODECOV="YES"
     - DESTINATION="OS=9.0,name=iPad 2"             RUN_TESTS="YES" RUN_CODECOV="YES"
 
     - DESTINATION="arch=x86_64,platform=macOS"     RUN_TESTS="YES" RUN_CODECOV="YES"

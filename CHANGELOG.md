@@ -1,9 +1,15 @@
 # Change log
 
+## [Version 5.1.0](https://github.com/yannickl/AwaitKit/releases/tag/5.1.0)
+*Released on 2019-01-17.*
+
+- Adding the 32bit architectures support (#21)
+- Upgrade PromiseKit to the v6.7
+
 ## [Version 5.0.1](https://github.com/yannickl/AwaitKit/releases/tag/5.0.1)
 *Released on 2018-09-20.*
 
-- Fixing the Carthage.
+- Fixing the Carthage dependency configuration.
 
 ## [Version 5.0.0](https://github.com/yannickl/AwaitKit/releases/tag/5.0.0)
 *Released on 2018-03-03.*
