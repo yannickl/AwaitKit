@@ -45,21 +45,6 @@ extension Extension where Base: DispatchQueue {
   }
 
   /**
-   Awaits that the given closure finished on the receiver and returns its value or throws an error if the current and target queues are the same.
-
-   - parameter body: The closure that is executed on the receiver.
-   - throws: when the queues are the same.
-   - returns: The value of the closure when it is done.
-   - seeAlso: await(guarantee:)
-   */
-  @discardableResult
-  public final func await<T>(_ body: @escaping () -> T) throws -> T {
-    let guarantee = self.base.async(.promise, execute: body)
-
-    return try await(guarantee)
-  }
-
-  /**
    Awaits that the given promise resolved on the receiver and returns its value or throws an error if the promise failed.
 
    - parameter promise: The promise to resolve.
