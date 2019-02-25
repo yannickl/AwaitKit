@@ -45,6 +45,21 @@ extension Extension where Base: DispatchQueue {
   }
 
   /**
+   Awaits that the given closure finished on the receiver and returns its value or throws an error if the current and target queues are the same.
+
+   - parameter body: The closure that is executed on the receiver.
+   - throws: when the queues are the same.
+   - returns: The value of the closure when it is done.
+   - seeAlso: await(guarantee:)
+   */
+  @discardableResult
+  public final func await<T>(_ body: @escaping () -> T) throws -> T {
+    let guarantee = self.base.async(.promise, execute: body)
+
+    return try await(guarantee)
+  }
+
+  /**
    Awaits that the given promise resolved on the receiver and returns its value or throws an error if the promise failed.
 
    - parameter promise: The promise to resolve.
@@ -86,5 +101,39 @@ extension Extension where Base: DispatchQueue {
     }
 
     return unwrappedResult
+  }
+
+  /**
+   Awaits that the given guarantee resolved on the receiver and returns its value or throws an error if the current and target queues are the same.
+
+   - parameter guarantee: The guarantee to resolve.
+   - throws: when the queues are the same.
+   - returns: The value of the guarantee when it is resolved.
+   */
+  @discardableResult
+  public final func await<T>(_ guarantee: Guarantee<T>) throws -> T {
+    guard self.base.label != DispatchQueue.main.label else {
+      throw NSError(domain: "com.yannickloriot.awaitkit", code: 0, userInfo: [
+        NSLocalizedDescriptionKey: "Operation was aborted.",
+        NSLocalizedFailureReasonErrorKey: "The current and target queues are the same."
+        ])
+    }
+
+    var result: T?
+
+    let semaphore = DispatchSemaphore(value: 0)
+
+    guarantee
+      .then(on: self.base) { value -> Guarantee<Void> in
+        result = value
+
+        semaphore.signal()
+
+        return Guarantee()
+      }
+
+    _ = semaphore.wait(timeout: .distantFuture)
+
+    return result!
   }
 }

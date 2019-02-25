@@ -29,7 +29,7 @@ import PromiseKit
 import XCTest
 
 class AwaitKitTests: XCTestCase {
-  func testExcludeSameQueue() {
+  func testExcludeSameQueuePromise() {
     let promise = Promise<Void> { seal in
       seal.fulfill(())
     }
@@ -37,7 +37,15 @@ class AwaitKitTests: XCTestCase {
     XCTAssertThrowsError(try DispatchQueue.main.ak.await(promise))
   }
 
-  func testAsyncAndAwaitOnDifferentQueue() {
+  func testExcludeSameQueueGuarantee() {
+    let guarantee = Guarantee<Void> { fulfill in
+      fulfill(())
+    }
+
+    XCTAssertThrowsError(try DispatchQueue.main.ak.await(guarantee))
+  }
+
+  func testAsyncAndAwaitOnDifferentQueuePromise() {
     let expect = expectation(description: "Async should fulfill")
 
     let promise = Promise<Void> { seal in
@@ -57,7 +65,27 @@ class AwaitKitTests: XCTestCase {
     waitForExpectations(timeout: 0.1, handler: nil)
   }
 
-  func testImbricationQueue() {
+  func testAsyncAndAwaitOnDifferentQueueGuarantee() {
+    let expect = expectation(description: "Async should fulfill")
+
+    let guarantee = Guarantee<Void> { fulfill in
+      fulfill(())
+    }
+
+    let result: Promise<Void> = async {
+      try await(guarantee)
+    }
+
+    _ = result.then { _ -> Promise<Void> in
+      expect.fulfill()
+
+      return Promise()
+    }
+
+    waitForExpectations(timeout: 0.1, handler: nil)
+  }
+
+  func testImbricationQueuePromise() {
     let expect = expectation(description: "Async should fulfill")
 
     let promise = Promise<Void> { seal in
@@ -66,6 +94,26 @@ class AwaitKitTests: XCTestCase {
 
     let result: Promise<Void> = async {
       try await(async { try await(promise) })
+    }
+
+    _ = result.then { _ -> Promise<Void> in
+      expect.fulfill()
+
+      return Promise()
+    }
+
+    waitForExpectations(timeout: 0.1, handler: nil)
+  }
+
+  func testImbricationQueueGuarantee() {
+    let expect = expectation(description: "Async should fulfill")
+
+    let guarantee = Guarantee<Void> { fulfill in
+      fulfill(())
+    }
+
+    let result: Promise<Void> = async {
+      try await(async { try await(guarantee) })
     }
 
     _ = result.then { _ -> Promise<Void> in

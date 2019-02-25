@@ -63,6 +63,17 @@ public func await<T>(_ body: @escaping () throws -> T) throws -> T {
 }
 
 /**
+ Awaits that the given closure finished and returns its value or throws an error if the current and target queues are the same.
+ - parameter body: The closure that is executed on a concurrent queue.
+ - throws: when the queues are the same.
+ - returns: The value of the closure when it is done.
+ */
+@discardableResult
+public func await<T>(_ body: @escaping () -> T) throws -> T {
+  return try Queue.await.ak.await(body)
+}
+
+/**
  Awaits that the given promise resolved and returns its value or throws an error if the promise failed.
  - parameter promise: The promise to resolve.
  - throws: The error produced when the promise is rejected.
@@ -71,4 +82,15 @@ public func await<T>(_ body: @escaping () throws -> T) throws -> T {
 @discardableResult
 public func await<T>(_ promise: Promise<T>) throws -> T {
   return try Queue.await.ak.await(promise)
+}
+
+/**
+ Awaits that the given guarantee resolved and returns its value or throws an error if the current and target queues are the same.
+ - parameter guarantee: The guarantee to resolve.
+ - throws: when the queues are the same.
+ - returns: The value of the guarantee when it is resolved.
+ */
+@discardableResult
+public func await<T>(_ guarantee: Guarantee<T>) throws -> T {
+  return try Queue.await.ak.await(guarantee)
 }
