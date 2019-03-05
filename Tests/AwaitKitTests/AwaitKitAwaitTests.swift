@@ -46,6 +46,20 @@ class AwaitKitAwaitTests: XCTestCase {
     XCTAssertEqual(name, "AwaitedPromiseKit")
   }
 
+  func testSimpleAwaitGuarantee() {
+    let guarantee: Guarantee<String> = Guarantee { fulfill in
+      let deadlineTime = DispatchTime.now() + .seconds(1)
+
+      backgroundQueue.asyncAfter(deadline: deadlineTime, execute: {
+        fulfill("AwaitedPromiseKit")
+      })
+    }
+
+    let name = try! await(guarantee)
+
+    XCTAssertEqual(name, "AwaitedPromiseKit")
+  }
+
   func testSimpleFailedAwaitPromise() {
     let promise: Promise<String> = Promise { seal in
       let deadlineTime = DispatchTime.now() + .seconds(1)
@@ -64,6 +78,14 @@ class AwaitKitAwaitTests: XCTestCase {
     }
 
     XCTAssertNotNil(promise.value)
+  }
+
+  func testNoValueAwaitGuarantee() {
+    let guarantee: Guarantee<Void> = Guarantee { fulfill in
+      fulfill(())
+    }
+
+    XCTAssertNotNil(guarantee.value)
   }
 
   func testAwaitBlock() {
