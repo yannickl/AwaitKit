@@ -11,7 +11,7 @@ Have you ever dream to write asynchronous code like its synchronous counterpart?
 
 _AwaitKit_ is a powerful Swift library inspired by the [Async/Await specification in ES8 (ECMAScript 2017)](https://github.com/tc39/ecmascript-asyncawait) which provides a powerful way to write asynchronous code in a sequential manner.
 
-Internally it uses [PromiseKit](https://github.com/mxcl/PromiseKit) v6.7 to create and manage promises.
+Internally it uses [PromiseKit](https://github.com/mxcl/PromiseKit) v6.8 to create and manage promises.
 
 <p align="center">
     <a href="#requirements">Requirements</a> • <a href="#getting-started">Getting Started</a> • <a href="#usage">Usage</a> • <a href="#installation">Installation</a> • <a href="#contribution">Contribution</a> • <a href="#contact">Contact</a> • <a href="#license-mit">License</a>
