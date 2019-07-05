@@ -4,7 +4,7 @@
 *Released on 2019-01-17.*
 
 - Adding the 32bit architectures support (#21)
-- Upgrade PromiseKit to the v6.7
+- Upgrade PromiseKit to the v6.7.0
 
 ## [Version 5.0.1](https://github.com/yannickl/AwaitKit/releases/tag/5.0.1)
 *Released on 2018-09-20.*
