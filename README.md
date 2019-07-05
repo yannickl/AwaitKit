@@ -171,7 +171,7 @@ Install into your project:
 $ pod install
 ```
 
-If CocoaPods did not find the `PromiseKit 6.7.0` dependency execute this command:
+If CocoaPods did not find the `PromiseKit 6.7` dependency execute this command:
 
 ```bash
 $ pod repo update
@@ -221,7 +221,7 @@ Run `carthage update` to build the framework and drag the built `AwaitKit.framew
 
 ### Manually
 
-[Download](https://github.com/YannickL/AwaitKit/archive/master.zip) the project and copy the `AwaitKit` folder into your project to use it in. Note that you also need to download the [PromiseKit](https://github.com/mxcl/PromiseKit) v6.7.0 library and import it to your project.
+[Download](https://github.com/YannickL/AwaitKit/archive/master.zip) the project and copy the `AwaitKit` folder into your project to use it in. Note that you also need to download the [PromiseKit](https://github.com/mxcl/PromiseKit) v6.7 library and import it to your project.
 
 ## Contribution
 
