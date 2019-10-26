@@ -126,4 +126,14 @@ class AwaitKitAwaitTests: XCTestCase {
 
     XCTAssertNil(error)
   }
+
+  func testAwaitNilPromise() {
+    let error = try? await(nil as Promise<Void>?)
+    XCTAssertNil(error)
+  }
+
+  func testAwaitNilGuarantee() {
+    let error = try? await(nil as Guarantee<Void>?)
+    XCTAssertNil(error)
+  }
 }
