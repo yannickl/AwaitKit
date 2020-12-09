@@ -53,6 +53,26 @@ class AwaitKitAsyncTests: XCTestCase {
     }
   }
 
+    func testSimpleDelayedValidGuaranteeAsyncBlock() {
+        let expect = expectation(description: "Async should return value")
+
+        let guarantee: Guarantee<String> = async {
+            Thread.sleep(forTimeInterval: 0.2)
+
+            return "AwaitedPromiseKit"
+        }
+
+        _ = guarantee.done { value in
+            expect.fulfill()
+        }
+
+        waitForExpectations(timeout: 0.5) { error in
+            if error == nil {
+                XCTAssertEqual(guarantee.value, "AwaitedPromiseKit")
+            }
+        }
+    }
+
   func testSimpleFailedAsyncBlock() {
     let expect = expectation(description: "Async should not return value")
 

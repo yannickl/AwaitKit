@@ -44,6 +44,15 @@ public func async<T>(_ body: @escaping () throws -> T) -> Promise<T> {
 }
 
 /**
+ Yields the execution to the given closure and returns a new guarantee
+ - parameter body: The closure that is executed on a concurrent queue.
+ - returns: A new guarantee that is resolved when the provided closure returned.
+ */
+public func async<T>(_ body: @escaping () -> T) -> Guarantee<T> {
+    return Queue.async.async(.promise, execute: body)
+}
+
+/**
  Yields the execution to the given closure which returns nothing.
  - parameter body: The closure that is executed on a concurrent queue.
  */
