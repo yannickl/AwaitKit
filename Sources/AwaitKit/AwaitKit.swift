@@ -74,6 +74,24 @@ public func await<T>(_ promise: Promise<T>) throws -> T {
 }
 
 /**
+ If `promise` is not `nil`, awaits that the given promise resolved and returns its value or throws an error if the promise failed. If the `promise` is `nil`, immediately returns `nil`.
+
+ This function is intended to be used with optional chaining.
+
+ - parameter promise: The promise to resolve.
+ - throws: The error produced when the promise is rejected.
+ - returns: The value of the promise when it is resolved, or `nil` if the passed promise is `nil`.
+ */
+@discardableResult
+public func await<T>(_ promise: Promise<T>?) throws -> T? {
+  if let promise = promise {
+    return try Queue.await.ak.await(promise)
+  }
+
+  return nil
+}
+
+/**
  Awaits that the given guarantee resolved and returns its value or throws an error if the current and target queues are the same.
  - parameter guarantee: The guarantee to resolve.
  - throws: when the queues are the same.
@@ -82,4 +100,19 @@ public func await<T>(_ promise: Promise<T>) throws -> T {
 @discardableResult
 public func await<T>(_ guarantee: Guarantee<T>) throws -> T {
   return try Queue.await.ak.await(guarantee)
+}
+
+/**
+ If `guarantee` is not `nil`, awaits that the given guarantee resolved and returns its value or throws an error if the current and target queues are the same. If the `guarantee` is `nil`, immediately returns `nil`.
+ - parameter guarantee: The guarantee to resolve.
+ - throws: when the queues are the same.
+ - returns: The value of the guarantee when it is resolved, or `nil` if the passed guarantee is `nil`.
+ */
+@discardableResult
+public func await<T>(_ guarantee: Guarantee<T>?) throws -> T? {
+  if let guarantee = guarantee {
+    return try Queue.await.ak.await(guarantee)
+  }
+
+  return nil
 }
